@@ -51,7 +51,7 @@
     "uniqCompNum": 54,
     "versionPublish": "4.11.6",
     "screenshot": "screenshot.png",
-    "favicon": "@PROJECT_PATH@/assets/images/logo-playcode-128x61.png",
+    "favicon": "@PROJECT_PATH@/assets/images/favicon-playcode-128x143.png",
     "noImageResize": false,
     "cssOptimize": false,
     "lazyLoad": false,
