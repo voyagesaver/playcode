@@ -2360,7 +2360,7 @@ section.lazy-placeholder:after {
   transition: font-size 0.25s;
   word-break: break-word;
   z-index: 1;
-  font-size: 3.9rem !important;
+  font-size: 2.9rem !important;
 }
 .cid-rOc2rK4zrA .navbar-brand span {
   margin-right: 0 !important;
@@ -2522,7 +2522,7 @@ section.lazy-placeholder:after {
     -ms-flex-preferred-size: auto;
     flex-basis: auto;
     word-break: break-word;
-    font-size: 3.9rem !important;
+    font-size: 2.9rem !important;
     -webkit-transition: font-size 0.25s;
     transition: font-size 0.25s;
   }
@@ -2545,12 +2545,12 @@ section.lazy-placeholder:after {
   min-height: 60px;
 }
 .cid-rOc2rK4zrA .navbar .container.navbar-short .navbar-logo {
-  font-size: 3.9rem !important;
+  font-size: 2.9rem !important;
   -webkit-transition: font-size 0.25s;
   transition: font-size 0.25s;
 }
 .cid-rOc2rK4zrA .navbar .container.navbar-short .navbar-logo a .mbr-iconfont {
-  font-size: 3.9rem !important;
+  font-size: 2.9rem !important;
   -webkit-transition: font-size 0.25s;
   transition: font-size 0.25s;
 }
