@@ -1426,6 +1426,87 @@ section.lazy-placeholder:after {
     padding-right: 21px;
   }
 }
+.cid-rOWHB3T7j1 {
+  padding-top: 120px;
+  padding-bottom: 60px;
+  background-color: #ffffff;
+}
+.cid-rOWHB3T7j1 .mbr-text {
+  color: #46495f;
+}
+.cid-rOWHB3T7j1 .mbr-section-title {
+  color: #133996;
+}
+.cid-rOWHB3T7j1 .img1 {
+  position: absolute !important;
+  height: 90%;
+  width: 60%;
+  left: 85px;
+  top: -10px;
+  background-repeat: no-repeat;
+  border-radius: 30px !important;
+  background-image: url("file:///C:/Users/drymo/AppData/Local/Mobirise.com/Mobirise/thehitmanagement_0040gmail_002ecom/addons/creativem4/components/_images/img/08.png") !important;
+}
+.cid-rOWHB3T7j1 .img1 > div {
+  border-radius: 30px !important;
+}
+.cid-rOWHB3T7j1 .img1 div[id^="jarallax-container"] > * {
+  bottom: 20% !important;
+  border-radius: 30px !important;
+  top: -9% !important;
+  background-size: contain !important;
+}
+.cid-rOWHB3T7j1 .img2 {
+  position: absolute !important;
+  height: 150%;
+  width: 50%;
+  top: -20px;
+  border-radius: 30px !important;
+  background-image: url("../../../assets/images/06.png");
+}
+.cid-rOWHB3T7j1 .img2 > div {
+  border-radius: 30px !important;
+  left: 253px !important;
+}
+.cid-rOWHB3T7j1 .img2 div[id^="jarallax-container"] > * {
+  top: -14% !important;
+  border-radius: 30px !important;
+  background-size: contain !important;
+}
+.cid-rOWHB3T7j1 .img3 {
+  position: absolute !important;
+  height: 150%;
+  width: 50%;
+  top: 0px;
+  left: 0px;
+  border-radius: 30px !important;
+  background-image: url("../../../assets/images/07.png");
+}
+.cid-rOWHB3T7j1 .img3 > div {
+  border-radius: 30px !important;
+}
+.cid-rOWHB3T7j1 .img3 div[id^="jarallax-container"] > * {
+  background-position: 50% 0% !important;
+  position: static !important;
+  border-radius: 30px !important;
+  background-size: contain !important;
+  height: 557.7px !important;
+}
+@media (max-width: 1199px) {
+  .cid-rOWHB3T7j1 .img1 {
+    left: 0px;
+  }
+  .cid-rOWHB3T7j1 .img2 div[id^="jarallax-container"] > * {
+    left: 740px !important;
+  }
+}
+@media (max-width: 991px) {
+  .cid-rOWHB3T7j1 h1,
+  .cid-rOWHB3T7j1 p,
+  .cid-rOWHB3T7j1 .mbr-section-btn {
+    text-align: center;
+  }
+}
 .cid-rRiZ7KjgE4.popup-builder {
   background-color: #ffffff;
 }
@@ -1985,87 +2066,6 @@ section.lazy-placeholder:after {
   flex: 0 0 auto;
   width: auto;
   max-width: 100%;
-}
-.cid-rOWHB3T7j1 {
-  padding-top: 120px;
-  padding-bottom: 60px;
-  background-color: #ffffff;
-}
-.cid-rOWHB3T7j1 .mbr-text {
-  color: #46495f;
-}
-.cid-rOWHB3T7j1 .mbr-section-title {
-  color: #133996;
-}
-.cid-rOWHB3T7j1 .img1 {
-  position: absolute !important;
-  height: 90%;
-  width: 60%;
-  left: 85px;
-  top: -10px;
-  background-repeat: no-repeat;
-  border-radius: 30px !important;
-  background-image: url("file:///C:/Users/drymo/AppData/Local/Mobirise.com/Mobirise/thehitmanagement_0040gmail_002ecom/addons/creativem4/components/_images/img/08.png") !important;
-}
-.cid-rOWHB3T7j1 .img1 > div {
-  border-radius: 30px !important;
-}
-.cid-rOWHB3T7j1 .img1 div[id^="jarallax-container"] > * {
-  bottom: 20% !important;
-  border-radius: 30px !important;
-  top: -9% !important;
-  background-size: contain !important;
-}
-.cid-rOWHB3T7j1 .img2 {
-  position: absolute !important;
-  height: 150%;
-  width: 50%;
-  top: -20px;
-  border-radius: 30px !important;
-  background-image: url("../../../assets/images/06.png");
-}
-.cid-rOWHB3T7j1 .img2 > div {
-  border-radius: 30px !important;
-  left: 253px !important;
-}
-.cid-rOWHB3T7j1 .img2 div[id^="jarallax-container"] > * {
-  top: -14% !important;
-  border-radius: 30px !important;
-  background-size: contain !important;
-}
-.cid-rOWHB3T7j1 .img3 {
-  position: absolute !important;
-  height: 150%;
-  width: 50%;
-  top: 0px;
-  left: 0px;
-  border-radius: 30px !important;
-  background-image: url("../../../assets/images/07.png");
-}
-.cid-rOWHB3T7j1 .img3 > div {
-  border-radius: 30px !important;
-}
-.cid-rOWHB3T7j1 .img3 div[id^="jarallax-container"] > * {
-  background-position: 50% 0% !important;
-  position: static !important;
-  border-radius: 30px !important;
-  background-size: contain !important;
-  height: 557.7px !important;
-}
-@media (max-width: 1199px) {
-  .cid-rOWHB3T7j1 .img1 {
-    left: 0px;
-  }
-  .cid-rOWHB3T7j1 .img2 div[id^="jarallax-container"] > * {
-    left: 740px !important;
-  }
-}
-@media (max-width: 991px) {
-  .cid-rOWHB3T7j1 h1,
-  .cid-rOWHB3T7j1 p,
-  .cid-rOWHB3T7j1 .mbr-section-btn {
-    text-align: center;
-  }
 }
 .cid-rOc2usnBhZ {
   padding-top: 75px;
