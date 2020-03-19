@@ -1,6 +1,6 @@
 {
   "settings": {
-    "currentPage": "index.html",
+    "currentPage": "browsegame.html",
     "theme": {
       "name": "creativem4",
       "title": "CreativeM4",
@@ -48,7 +48,7 @@
         "url": "https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
       }
     ],
-    "uniqCompNum": 67,
+    "uniqCompNum": 69,
     "versionPublish": "4.11.6",
     "screenshot": "screenshot.png",
     "favicon": "@PROJECT_PATH@/assets/images/favicon-playcode-128x143.png",
@@ -2448,550 +2448,946 @@
           "_styles": {
             "padding-top": "(@paddingTop * 15px)",
             "padding-bottom": "(@paddingBottom * 15px)",
-            "& when (@bg-type = 'color')": {
-              "background-color": "@bg-value"
-            },
-            "& when (@bg-type = 'image')": {
-              "background-image": "url(@bg-value)"
-            },
-            ".accordion-content": {
-              "-webkit-flex-basis": "100%",
-              "flex-basis": "100%"
-            },
-            ".panel-group": {
+            "background-color": "@bgColor",
+            ".mbr-shop": {
+              "display": "table",
               "width": "100%"
             },
-            ".panel-text,.header-text,.mbr-section-subtitle": {
-              "color": "#8d97ad"
+            ".mbr-shop .row": {
+              "margin": "0"
             },
-            ".card": {
-              "-webkit-box-shadow": "0px 0px 30px rgba(115, 128, 157, 0.1)",
-              "box-shadow": "0px 0px 30px rgba(115, 128, 157, 0.1)",
-              "margin-bottom": ".5rem",
-              "border": "none",
-              "border-top-left-radius": ".25rem !important",
-              "border-top-right-radius": ".25rem !important",
-              "border-bottom-right-radius": "0 !important",
-              "border-bottom-left-radius": "0 !important",
-              ".card-header": {
-                "border-radius": "0 !important",
-                "border-bottom": "none !important",
-                "padding": "0",
-                "a.panel-title": {
-                  "-webkit-justify-content": "space-between",
-                  "justify-content": "space-between",
-                  "transition": "all .3s",
-                  "background-color": "@accordionColor",
-                  "margin-bottom": "0",
-                  "font-style": "normal",
-                  "font-weight": "500",
-                  "display": "flex",
-                  "-webkit-align-items": "center",
-                  "align-items": "center",
-                  "text-decoration": "none !important",
-                  "border-top-left-radius": ".25rem",
-                  "border-top-right-radius": ".25rem",
-                  "line-height": "normal",
-                  "&:focus": {
-                    "text-decoration": "none !important"
-                  },
-                  ".sign": {
-                    "padding-right": "1rem"
-                  },
-                  "h4": {
-                    "padding": "1rem 1rem",
-                    "margin-bottom": "0",
-                    "width": "100%"
-                  },
-                  "&[aria-expanded=\"true\"]": {
-                    "background-color": "@activePanelColor",
-                    ".header-text": {
-                      "color": "contrast(@activePanelColor) !important"
-                    }
-                  }
-                }
-              },
-              ".panel-body": {
-                "background": "@panelColor"
-              }
+            ".mbr-shop .btn-sm": {
+              "margin": "0.2rem 0.2rem"
             },
-            ".sign": {
-              "color": "#232323"
+            ".mbr-shop .shoppingcart-icons": {
+              "z-index": "105 !important"
             },
-            ".header-text": {
-              "color": "#5b686b"
-            }
-          },
-          "_name": "extAccordion3",
-          "_customHTML": "<section class=\"extAccordion\" group=\"Additional Blocks\" data-bg-video=\"{{bg.type == 'video'&&bg.value.url}}\" mbr-class=\"{'mbr-parallax-background':bg.parallax}\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"9\" step=\"1\" value=\"4\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"9\" step=\"1\" value=\"0\">\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubtitle\" checked>\n        <input type=\"color\" title=\"Accordion Color\" name=\"accordionColor\" value=\"#bfebf3\">\n        <input type=\"color\" title=\"Panel Color\" name=\"panelColor\" value=\"#ffffff\">\n        <input type=\"color\" title=\"Active Panel Color\" name=\"activePanelColor\" value=\"#fc643f\">\n        <select title=\"Accordions Count\" name=\"bootstrapAccordion\">\n             <option value=\"1\">1</option>\n             <option value=\"2\">2</option>\n             <option value=\"3\">3</option>\n             <option value=\"4\">4</option>\n             <option value=\"5\">5</option>\n             <option value=\"6\" selected>6</option>\n        </select>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Background Image\" value=\"@PROJECT_PATH@/assets/images/background3.jpg\" parallax>\n            <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected>\n            <input type=\"video\" title=\"Background Video\" value=\"https://youtu.be/iM-NestDPNQ\">\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay&&bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.7\" condition=\"overlay&&bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    \n    <div class=\"mbr-overlay\" mbr-if=\"overlay&&bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\">\n    </div>\n    <div class=\"container\">\n        <h2 class=\"mbr-fonts-style mbr-section-title align-center\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\" mbr-theme-style=\"display-2\">Accordion FAQ</h2>\n        <h3 class=\"mbr-fonts-style mbr-section-subtitle align-center\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-5\">Lorem Ipsum Dolor Sit Amet</h3>\n        <div class=\"row justify-content-center\" mbr-class=\"{'pt-4':showTitle || showSubtitle}\">\n            <div class=\"col-md-10 col-lg-8 content-block\">\n            <div class=\"accordion-content\">\n                <div id=\"bootstrap-accordion\" class=\"panel-group accordionStyles accordion \" role=\"tablist\" aria-multiselectable=\"true\">\n                        <div class=\"card\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingOne\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core href=\"#collapse1\" aria-expanded=\"false\" aria-controls=\"collapse1\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">1. I’m Hosting a Party…</h4>\n                                </a>\n                            </div>\n                            <div id=\"collapse1\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">For a more cognitive game, play this brain-teaser. Say you’re hosting a party, and only people who bring the right contributions are given an invitation. Pick a secret rule: Typically, everyone must bring something that begins with the same letter as their name, but you can also get more creative with it. Don’t tell anyone else your rule.\n<br>Go around the room and have each person say what they’re bringing; you respond to each suggestions with a “Yes, you’re invited,” or “No, you can’t bring that.” Continue until everyone figures out the rule.&nbsp;<br></p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 1\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingTwo\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core href=\"#collapse2\" aria-expanded=\"false\" aria-controls=\"collapse2\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">2. Telephone</h4>\n                                </a>\n                                \n                            </div>\n                            <div id=\"collapse2\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingTwo\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">An oldie but a goodie: Gather in a circle. Pick one phrase to whisper in the ear of the person next to you—no repeats. That person will whisper what they heard to the person next to them, and so on until the phrase gets back to you. Prepare to laugh at how distorted it gets. To make it more difficult, play music in the background.&nbsp;<br></p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 2\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingThree\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core href=\"#collapse3\" aria-expanded=\"false\" aria-controls=\"collapse3\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">3. Two Truths and a Lie</h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse3\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingThree\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">Pick three statements to make about yourself: “I have two siblings, I’ve been to three continents, and I love cats,” for example. Two should be true; one should be a lie. Everyone else must guess which is the lie, and then the next person goes. This is a great getting-to-know-you game; if you’re playing with family or friends, pick obscure details to try to trick each other to make it even more fun.&nbsp;<br></p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 3\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingFour\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core href=\"#collapse4\" aria-expanded=\"false\" aria-controls=\"collapse4\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">4. Charades</h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse4\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingFour\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       This tried-and-true party game can be as simple or as complicated as you make it. Have everyone write down concepts, movies, people, shows, and more to act out and divide into teams. One person will act out something drawn from the assortment while their team members guess what it is. When time is up, switch teams and repeat. Add time limits, scoring systems, silence rules, and more as desired.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 4\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingFive\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core href=\"#collapse5\" aria-expanded=\"false\" aria-controls=\"collapse5\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">5. Would You Rather?</h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse5\" class=\"panel-collapse noScroll collapse\" data-parent=\"#accordion\" role=\"tabpanel\" aria-labelledby=\"headingFive\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, dolorem, non. Sunt aliquam a odio, sapiente corporis necessitatibus quia assumenda expedita tempora error non deserunt beatae ex, eaque voluptatem quas.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 5\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingSix\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core href=\"#collapse6\" aria-expanded=\"false\" aria-controls=\"collapse6\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">\n                                        Lorem Ipsum\n                                    </h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse6\" class=\"panel-collapse noScroll collapse\" data-parent=\"#accordion\" role=\"tabpanel\" aria-labelledby=\"headingSix\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Iusto voluptates dolorem, odit enim! Aspernatur quos ipsa, sit! Repudiandae, laboriosam enim aliquam, similique suscipit quas dicta voluptate repellendus distinctio laborum at!</p>\n                                </div>\n                            </div>\n                        </div>\n                </div>\n            </div>\n            </div>\n    </div>\n    </div>         \n</section>",
-          "_anchor": "extAccordion3-11",
-          "_isUserblock": true,
-          "_sourceTheme": "creativem4",
-          "_cid": "rPKhLfqhPt",
-          "_protectedParams": [],
-          "_global": false,
-          "_once": false,
-          "_params": {}
-        },
-        {
-          "alias": "mobirise4-blocks/components",
-          "_isSecondary": true,
-          "typeCompatible": "!isAMP",
-          "_styles": {
-            "padding-top": "(@paddingTop * 15px)",
-            "padding-bottom": "(@paddingBottom * 15px)",
-            "& when (@bg-type = 'color')": {
-              "background-color": "@bg-value"
+            ".mbr-shop .shop-title": {
+              "margin-bottom": "18px",
+              "padding-left": "25px",
+              "padding-right": "25px",
+              "display": "inline-block",
+              "max-width": "80%"
             },
-            "& when (@bg-type = 'image')": {
-              "background-image": "url(@bg-value)"
+            ".mbr-shop .sidebar-title": {
+              "line-height": "25px"
             },
-            ".accordion-content": {
-              "-webkit-flex-basis": "100%",
-              "flex-basis": "100%"
+            ".mbr-shop .shopItemsModal_wraper": {
+              "position": "fixed",
+              "display": "none",
+              "-webkit-align-items": "center",
+              "align-items": "center",
+              "-webkit-justify-content": "center",
+              "justify-content": "center",
+              "width": "100%",
+              "height": "100%",
+              "background-color": "rgba(87, 87, 87, 0.4)",
+              "top": "0",
+              "cursor": "pointer",
+              "z-index": "1040"
             },
-            ".panel-group": {
+            ".mbr-shop .card-description": {
+              "cursor": "text",
+              "display": "none"
+            },
+            ".mbr-shop .image-modal": {
+              "padding-left": "0",
+              "padding-right": "0",
+              "text-align": "center"
+            },
+            ".mbr-shop .image-modal img": {
+              "max-width": "100%",
+              "max-height": "75vh"
+            },
+            ".mbr-shop .hide-modal": {
+              "display": "none"
+            },
+            ".mbr-shop .shopItemsModal": {
+              "cursor": "default",
+              "padding": "50px",
+              "width": "1000px",
+              "max-width": "100%",
+              "background-color": "#ffffff",
+              "z-index": "2000",
+              "overflow": "auto",
+              "position": "fixed"
+            },
+            ".mbr-shop .shopItemsModal p": {
+              "margin-bottom": "0"
+            },
+            ".mbr-shop .shopItemsModal ul": {
+              "margin-bottom": "0"
+            },
+            ".mbr-shop .shopItemsModal .card-description": {
+              "display": "block",
               "width": "100%"
             },
-            ".panel-text,.header-text,.mbr-section-subtitle": {
-              "color": "#8d97ad"
+            ".mbr-shop .shopItemsModal .close-modal": {
+              "content": "''",
+              "position": "absolute",
+              "top": "0",
+              "right": "0",
+              "width": "50px",
+              "height": "4px",
+              "background-color": "red",
+              "-webkit-transform": "rotate(45deg)",
+              "transform": "rotate(45deg)"
             },
-            ".card": {
-              "-webkit-box-shadow": "0px 0px 30px rgba(115, 128, 157, 0.1)",
-              "box-shadow": "0px 0px 30px rgba(115, 128, 157, 0.1)",
-              "margin-bottom": ".5rem",
-              "border": "none",
-              "border-top-left-radius": ".25rem !important",
-              "border-top-right-radius": ".25rem !important",
-              "border-bottom-right-radius": "0 !important",
-              "border-bottom-left-radius": "0 !important",
-              ".card-header": {
-                "border-radius": "0 !important",
-                "border-bottom": "none !important",
-                "padding": "0",
-                "a.panel-title": {
-                  "-webkit-justify-content": "space-between",
-                  "justify-content": "space-between",
-                  "transition": "all .3s",
-                  "background-color": "@accordionColor",
-                  "margin-bottom": "0",
-                  "font-style": "normal",
-                  "font-weight": "500",
-                  "display": "flex",
-                  "-webkit-align-items": "center",
-                  "align-items": "center",
-                  "text-decoration": "none !important",
-                  "border-top-left-radius": ".25rem",
-                  "border-top-right-radius": ".25rem",
-                  "line-height": "normal",
-                  "&:focus": {
-                    "text-decoration": "none !important"
-                  },
-                  ".sign": {
-                    "padding-right": "1rem"
-                  },
-                  "h4": {
-                    "padding": "1rem 1rem",
-                    "margin-bottom": "0",
-                    "width": "100%"
-                  },
-                  "&[aria-expanded=\"true\"]": {
-                    "background-color": "@activePanelColor",
-                    ".header-text": {
-                      "color": "contrast(@activePanelColor) !important"
-                    }
-                  }
-                }
-              },
-              ".panel-body": {
-                "background": "@panelColor"
-              }
+            ".mbr-shop .shopItemsModal .close-modal:before": {
+              "content": "''",
+              "position": "absolute",
+              "top": "0",
+              "right": "0",
+              "width": "50px",
+              "height": "4px",
+              "background-color": "red",
+              "-webkit-transform": "rotate(-45deg)",
+              "transform": "rotate(-45deg)"
             },
-            ".sign": {
-              "color": "#232323"
+            ".mbr-shop .test-overlay": {
+              "position": "absolute",
+              "width": "100%",
+              "height": "100%",
+              "background-color": "rgba(0, 0, 0, 0.5)"
             },
-            ".header-text": {
-              "color": "#5b686b"
-            }
-          },
-          "_name": "extAccordion3",
-          "_customHTML": "<section class=\"extAccordion\" group=\"Additional Blocks\" data-bg-video=\"{{bg.type == 'video'&&bg.value.url}}\" mbr-class=\"{'mbr-parallax-background':bg.parallax}\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"9\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"9\" step=\"1\" value=\"0\">\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\">\n        <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubtitle\">\n        <input type=\"color\" title=\"Accordion Color\" name=\"accordionColor\" value=\"#bfebf3\">\n        <input type=\"color\" title=\"Panel Color\" name=\"panelColor\" value=\"#ffffff\">\n        <input type=\"color\" title=\"Active Panel Color\" name=\"activePanelColor\" value=\"#fc643f\">\n        <select title=\"Accordions Count\" name=\"bootstrapAccordion\">\n             <option value=\"1\">1</option>\n             <option value=\"2\">2</option>\n             <option value=\"3\">3</option>\n             <option value=\"4\">4</option>\n             <option value=\"5\">5</option>\n             <option value=\"6\" selected>6</option>\n        </select>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Background Image\" value=\"@PROJECT_PATH@/assets/images/background3.jpg\" parallax>\n            <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected>\n            <input type=\"video\" title=\"Background Video\" value=\"https://youtu.be/iM-NestDPNQ\">\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay&&bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.7\" condition=\"overlay&&bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    \n    <div class=\"mbr-overlay\" mbr-if=\"overlay&&bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\">\n    </div>\n    <div class=\"container\">\n        <h2 class=\"mbr-fonts-style mbr-section-title align-center\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\" mbr-theme-style=\"display-2\">Accordion FAQ</h2>\n        <h3 class=\"mbr-fonts-style mbr-section-subtitle align-center\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-5\">Lorem Ipsum Dolor Sit Amet</h3>\n        <div class=\"row justify-content-center\" mbr-class=\"{'pt-4':showTitle || showSubtitle}\">\n            <div class=\"col-md-10 col-lg-8 content-block\">\n            <div class=\"accordion-content\">\n                <div id=\"bootstrap-accordion\" class=\"panel-group accordionStyles accordion \" role=\"tablist\" aria-multiselectable=\"true\">\n                        <div class=\"card\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingOne\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core href=\"#collapse1\" aria-expanded=\"false\" aria-controls=\"collapse1\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">5. 20 Questions</h4>\n                                </a>\n                            </div>\n                            <div id=\"collapse1\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">Pick one person to go first. That person will think of an item, animal, movie, public figure, etc. Everyone else will ask yes or no questions about what or who they are; they have 20 chances to guess, or the other person wins. Whoever guesses correctly can win a prize, or be the next to answer questions.&nbsp;<br></p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 1\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingTwo\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core href=\"#collapse2\" aria-expanded=\"false\" aria-controls=\"collapse2\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">6. Straight Face</h4>\n                                </a>\n                                \n                            </div>\n                            <div id=\"collapse2\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingTwo\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Find a pad of paper and writing tools. Have everyone write an outrageous phrase on a slip of paper, and collect everything in a hat. (If it’s a mixed group, set propriety guidelines ahead of time; if it’s adults only, go wild.) Gather in a circle. Give one person the hat: They must draw a piece of paper and read the statement aloud to the group. The goal is to keep a straight face: Whoever laughs or smiles loses. Pass the hat around until everything has been read.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 2\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingThree\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core href=\"#collapse3\" aria-expanded=\"false\" aria-controls=\"collapse3\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">1. Mr. Freeze</h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse3\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingThree\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Pick one person to be Mr. Freeze. Have everyone playing the game move around the party as usual. When Mr. Freeze freezes, though, everyone else must freeze, too. Whoever freezes last is out. Repeat for the duration of the party.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 3\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingFour\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core href=\"#collapse4\" aria-expanded=\"false\" aria-controls=\"collapse4\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">1. Saran Wrap Game</h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse4\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingFour\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Voluptate veniam accusamus eaque recusandae modi velit a praesentium ipsa animi facilis repellendus magnam aliquam, numquam debitis fuga laboriosam, quos aut adipisci.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 4\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingFive\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core href=\"#collapse5\" aria-expanded=\"false\" aria-controls=\"collapse5\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">\n                                        Lorem Ipsum\n                                    </h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse5\" class=\"panel-collapse noScroll collapse\" data-parent=\"#accordion\" role=\"tabpanel\" aria-labelledby=\"headingFive\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, dolorem, non. Sunt aliquam a odio, sapiente corporis necessitatibus quia assumenda expedita tempora error non deserunt beatae ex, eaque voluptatem quas.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 5\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingSix\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core href=\"#collapse6\" aria-expanded=\"false\" aria-controls=\"collapse6\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">\n                                        Lorem Ipsum\n                                    </h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse6\" class=\"panel-collapse noScroll collapse\" data-parent=\"#accordion\" role=\"tabpanel\" aria-labelledby=\"headingSix\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Iusto voluptates dolorem, odit enim! Aspernatur quos ipsa, sit! Repudiandae, laboriosam enim aliquam, similique suscipit quas dicta voluptate repellendus distinctio laborum at!</p>\n                                </div>\n                            </div>\n                        </div>\n                </div>\n            </div>\n            </div>\n    </div>\n    </div>         \n</section>",
-          "_anchor": "extAccordion3-12",
-          "_isUserblock": true,
-          "_sourceTheme": "creativem4",
-          "_cid": "rPKhXJ8tyL",
-          "_protectedParams": [],
-          "_global": false,
-          "_once": false,
-          "_params": {}
-        },
-        {
-          "alias": "mobirise4-blocks/components",
-          "_isSecondary": true,
-          "typeCompatible": "!isAMP",
-          "_styles": {
-            "padding-top": "(@paddingTop * 15px)",
-            "padding-bottom": "(@paddingBottom * 15px)",
-            "& when (@bg-type = 'color')": {
-              "background-color": "@bg-value"
+            ".mbr-shop .filter-by-pu, .mbr-shop .filter-by-pd, .mbr-shop .filter-by-d": {
+              "display": "inline-block",
+              "margin-right": "3px"
             },
-            "& when (@bg-type = 'image')": {
-              "background-image": "url(@bg-value)"
+            ".mbr-shop .sort-buttons": {
+              "padding-bottom": "0.2rem",
+              "margin-right": "13px",
+              "text-align": "right"
             },
-            ".accordion-content": {
-              "-webkit-flex-basis": "100%",
-              "flex-basis": "100%"
+            ".mbr-shop .galleryItem:before": {
+              "width": "0 !important",
+              "height": "0 !important"
             },
-            ".panel-group": {
+            ".mbr-shop .modal-dialog": {
+              "max-width": "700px"
+            },
+            ".mbr-shop .mbr-gallery-item": {
+              "left": "0 !important",
+              "top": "0 !important",
+              "vertical-align": "top",
+              "position": "relative !important",
+              "-webkit-transform": "none !important",
+              "transform": "none !important",
+              "padding": "10px"
+            },
+            ".mbr-shop .galleryItem h4, .mbr-shop .carousel-item h4": {
+              "font-style": "normal",
+              "line-height": "1",
+              "text-transform": "none",
+              "letter-spacing": "-1px",
+              "word-spacing": "0",
+              "margin-bottom": "0.3rem",
+              "padding-top": "10px",
+              "transition": "color 0.5s"
+            },
+            ".mbr-shop .galleryItem h5, .mbr-shop .carousel-item h5": {
+              "font-style": "italic",
+              "font-weight": "400",
+              "line-height": "22.36px",
+              "text-transform": "none",
+              "letter-spacing": "0px",
+              "word-spacing": "0"
+            },
+            ".mbr-shop .galleryItem p, .mbr-shop .carousel-item p": {
+              "font-style": "italic",
+              "font-weight": "400",
+              "text-transform": "none",
+              "letter-spacing": "0px",
+              "word-spacing": "0px",
+              "text-align": "center",
+              "display": "inline"
+            },
+            ".mbr-shop .item-button": {
+              "text-align": "center"
+            },
+            ".mbr-shop .modalButton": {
+              "display": "inline-block",
+              "float": "right",
+              "margin-right": "10px"
+            },
+            ".mbr-shop .modalButton.btn-success": {
+              "right": "15%"
+            },
+            ".mbr-shop .sidebar": {
+              "margin-top": "30px",
+              "position": "relative"
+            },
+            ".mbr-shop .sidebar-block": {
+              "position": "relative"
+            },
+            ".mbr-shop .sidebar-background:after": {
+              "content": "''",
+              "position": "absolute",
+              "width": "100%",
+              "height": "102%",
+              "background-color": "rgba(0, 0, 0, 0)",
+              "top": "-20px",
+              "right": "3px"
+            },
+            ".mbr-shop .bestsellers": {
+              "padding-left": "0",
+              "padding-right": "0",
+              "position": "relative",
+              "margin-bottom": "20px"
+            },
+            ".mbr-shop .bestsellers .onsale": {
+              "top": "-15px"
+            },
+            ".mbr-shop .bestsellers .price-block": {
+              "padding-top": "5px",
+              "text-align": "left",
+              "line-height": "1"
+            },
+            ".mbr-shop .bestsellers .mbr-gallery-item": {
               "width": "100%"
             },
-            ".panel-text,.header-text,.mbr-section-subtitle": {
-              "color": "#8d97ad"
+            ".mbr-shop .bestsellers .mbr-gallery-item img": {
+              "width": "80px",
+              "float": "left",
+              "margin-right": "20px"
             },
-            ".card": {
-              "-webkit-box-shadow": "0px 0px 30px rgba(115, 128, 157, 0.1)",
-              "box-shadow": "0px 0px 30px rgba(115, 128, 157, 0.1)",
-              "margin-bottom": ".5rem",
+            ".mbr-shop .bestsellers .mbr-gallery-item h4": {
+              "text-align": "left",
+              "padding-bottom": "5px",
+              "line-height": "1",
+              "border-bottom": "1px dotted #d6d6d6"
+            },
+            ".mbr-shop .bestsellers .mbr-gallery-item h5": {
+              "text-align": "left",
+              "display": "none"
+            },
+            ".mbr-shop .bestsellers .mbr-gallery-item p": {
+              "text-align": "left"
+            },
+            ".mbr-shop .bestsellers .btn": {
+              "display": "none"
+            },
+            ".mbr-shop .bestsellers-img": {
+              "display": "inline-block",
+              "width": "80px",
+              "height": "80px",
+              "overflow": "hidden"
+            },
+            ".mbr-shop .bestsellers-title": {
+              "display": "inline-block"
+            },
+            ".mbr-shop .onsale": {
+              "position": "absolute",
+              "top": "5px",
+              "right": "5px",
+              "display": "block",
+              "transition": "color .3s ease",
+              "text-align": "center",
+              "z-index": "95",
+              "height": "30px",
+              "line-height": "30px",
+              "padding": "0 15px",
+              "background": "@saleBg",
+              "color": "contrast(@saleBg)",
+              "border-radius": "30px",
+              "font-weight": "400",
+              "font-style": "normal",
+              "text-transform": "none",
+              "letter-spacing": "0px"
+            },
+            ".mbr-shop .mbr-gallery-item__hided": {
+              "display": "none"
+            },
+            ".mbr-shop .mbr-gallery-item__hided h4, .mbr-shop .mbr-gallery-item__hided h5, .mbr-shop .mbr-gallery-item__hided p": {
+              "display": "none"
+            },
+            ".mbr-shop .mbr-gallery-item__hided .btn": {
+              "display": "none"
+            },
+            ".mbr-shop .galleryItem .price-block": {
+              "display": "block",
+              "margin-bottom": "8px"
+            },
+            ".mbr-shop .galleryItem .price-block span": {
+              "font-style": "normal",
+              "font-weight": "400",
+              "line-height": "1",
+              "text-transform": "none",
+              "letter-spacing": "-1px",
+              "word-spacing": "0"
+            },
+            ".mbr-shop .mbr-gallery-filter": {
+              "padding-left": "0",
+              "text-align": "left",
+              "padding-top": "0"
+            },
+            ".mbr-shop .mbr-gallery-filter ul li": {
+              "position": "relative",
+              "padding": "7px 0 7px 0px",
+              "border-bottom": "1px dotted #d6d6d6",
+              "margin": "0",
+              "font-style": "normal",
+              "font-weight": "400",
+              "line-height": "24.99px",
+              "text-transform": "none",
+              "letter-spacing": "0px",
+              "word-spacing": "0",
+              "direction": "ltr",
               "border": "none",
-              "border-top-left-radius": ".25rem !important",
-              "border-top-right-radius": ".25rem !important",
-              "border-bottom-right-radius": "0 !important",
-              "border-bottom-left-radius": "0 !important",
-              ".card-header": {
-                "border-radius": "0 !important",
-                "border-bottom": "none !important",
+              "display": "list-item",
+              "text-align": "left",
+              "transition": "all 0.3s ease-out",
+              "cursor": "pointer",
+              ".btn": {
+                "border": "none",
+                "margin": "0 !important",
                 "padding": "0",
-                "a.panel-title": {
-                  "-webkit-justify-content": "space-between",
-                  "justify-content": "space-between",
-                  "transition": "all .3s",
-                  "background-color": "@accordionColor",
-                  "margin-bottom": "0",
-                  "font-style": "normal",
-                  "font-weight": "500",
-                  "display": "flex",
-                  "-webkit-align-items": "center",
-                  "align-items": "center",
-                  "text-decoration": "none !important",
-                  "border-top-left-radius": ".25rem",
-                  "border-top-right-radius": ".25rem",
-                  "line-height": "normal",
-                  "&:focus": {
-                    "text-decoration": "none !important"
-                  },
-                  ".sign": {
-                    "padding-right": "1rem"
-                  },
-                  "h4": {
-                    "padding": "1rem 1rem",
-                    "margin-bottom": "0",
-                    "width": "100%"
-                  },
-                  "&[aria-expanded=\"true\"]": {
-                    "background-color": "@activePanelColor",
-                    ".header-text": {
-                      "color": "contrast(@activePanelColor) !important"
-                    }
-                  }
-                }
+                "background-color": "transparent !important",
+                "color": "inherit !important",
+                "font-weight": "400"
               },
-              ".panel-body": {
-                "background": "@panelColor"
+              "&.active .btn": {
+                "font-weight": "bold"
               }
             },
-            ".sign": {
-              "color": "#232323"
+            ".mbr-shop .mbr-gallery-filter ul li.active": {
+              "background-color": "transparent",
+              "font-weight": "bold"
             },
-            ".header-text": {
-              "color": "#5b686b"
-            }
-          },
-          "_name": "extAccordion3",
-          "_customHTML": "<section class=\"extAccordion\" group=\"Additional Blocks\" data-bg-video=\"{{bg.type == 'video'&&bg.value.url}}\" mbr-class=\"{'mbr-parallax-background':bg.parallax}\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"9\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"9\" step=\"1\" value=\"0\">\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\">\n        <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubtitle\">\n        <input type=\"color\" title=\"Accordion Color\" name=\"accordionColor\" value=\"#bfebf3\">\n        <input type=\"color\" title=\"Panel Color\" name=\"panelColor\" value=\"#ffffff\">\n        <input type=\"color\" title=\"Active Panel Color\" name=\"activePanelColor\" value=\"#fc643f\">\n        <select title=\"Accordions Count\" name=\"bootstrapAccordion\">\n             <option value=\"1\">1</option>\n             <option value=\"2\">2</option>\n             <option value=\"3\">3</option>\n             <option value=\"4\">4</option>\n             <option value=\"5\">5</option>\n             <option value=\"6\" selected>6</option>\n        </select>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Background Image\" value=\"@PROJECT_PATH@/assets/images/background3.jpg\" parallax>\n            <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected>\n            <input type=\"video\" title=\"Background Video\" value=\"https://youtu.be/iM-NestDPNQ\">\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay&&bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.7\" condition=\"overlay&&bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    \n    <div class=\"mbr-overlay\" mbr-if=\"overlay&&bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\">\n    </div>\n    <div class=\"container\">\n        <h2 class=\"mbr-fonts-style mbr-section-title align-center\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\" mbr-theme-style=\"display-2\">Accordion FAQ</h2>\n        <h3 class=\"mbr-fonts-style mbr-section-subtitle align-center\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-5\">Lorem Ipsum Dolor Sit Amet</h3>\n        <div class=\"row justify-content-center\" mbr-class=\"{'pt-4':showTitle || showSubtitle}\">\n            <div class=\"col-md-10 col-lg-8 content-block\">\n            <div class=\"accordion-content\">\n                <div id=\"bootstrap-accordion\" class=\"panel-group accordionStyles accordion \" role=\"tablist\" aria-multiselectable=\"true\">\n                        <div class=\"card\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingOne\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core href=\"#collapse1\" aria-expanded=\"false\" aria-controls=\"collapse1\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">1. Saran Wrap Game</h4>\n                                </a>\n                            </div>\n                            <div id=\"collapse1\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, voluptas explicabo molestiae tempore natus velit sed aliquam ut! Culpa asperiores, error ullam qui! Commodi nobis distinctio aperiam totam perferendis quas.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 1\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingTwo\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core href=\"#collapse2\" aria-expanded=\"false\" aria-controls=\"collapse2\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">1. Saran Wrap Game</h4>\n                                </a>\n                                \n                            </div>\n                            <div id=\"collapse2\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingTwo\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Id ullam sint repellat! Aliquid, odio magni ab rem eos odit, deleniti laboriosam voluptas inventore, iste suscipit sed ipsa! Ut aliquam, alias.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 2\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingThree\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core href=\"#collapse3\" aria-expanded=\"false\" aria-controls=\"collapse3\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">1. Saran Wrap Game</h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse3\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingThree\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Illum sed exercitationem reiciendis suscipit sunt enim, tempore ex debitis fuga dolorum aliquid ea libero atque optio. Molestiae ullam at, quasi alias.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 3\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingFour\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core href=\"#collapse4\" aria-expanded=\"false\" aria-controls=\"collapse4\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">1. Saran Wrap Game</h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse4\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingFour\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Voluptate veniam accusamus eaque recusandae modi velit a praesentium ipsa animi facilis repellendus magnam aliquam, numquam debitis fuga laboriosam, quos aut adipisci.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 4\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingFive\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core href=\"#collapse5\" aria-expanded=\"false\" aria-controls=\"collapse5\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">\n                                        Lorem Ipsum\n                                    </h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse5\" class=\"panel-collapse noScroll collapse\" data-parent=\"#accordion\" role=\"tabpanel\" aria-labelledby=\"headingFive\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, dolorem, non. Sunt aliquam a odio, sapiente corporis necessitatibus quia assumenda expedita tempora error non deserunt beatae ex, eaque voluptatem quas.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 5\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingSix\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core href=\"#collapse6\" aria-expanded=\"false\" aria-controls=\"collapse6\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">\n                                        Lorem Ipsum\n                                    </h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse6\" class=\"panel-collapse noScroll collapse\" data-parent=\"#accordion\" role=\"tabpanel\" aria-labelledby=\"headingSix\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Iusto voluptates dolorem, odit enim! Aspernatur quos ipsa, sit! Repudiandae, laboriosam enim aliquam, similique suscipit quas dicta voluptate repellendus distinctio laborum at!</p>\n                                </div>\n                            </div>\n                        </div>\n                </div>\n            </div>\n            </div>\n    </div>\n    </div>         \n</section>",
-          "_anchor": "extAccordion3-13",
-          "_isUserblock": true,
-          "_sourceTheme": "creativem4",
-          "_cid": "rPKifQd4br",
-          "_protectedParams": [],
-          "_global": false,
-          "_once": false,
-          "_params": {}
-        },
-        {
-          "alias": "mobirise4-blocks/components",
-          "_isSecondary": true,
-          "typeCompatible": "!isAMP",
-          "_styles": {
-            "padding-top": "(@paddingTop * 15px)",
-            "padding-bottom": "(@paddingBottom * 15px)",
-            "& when (@bg-type = 'color')": {
-              "background-color": "@bg-value"
+            ".mbr-shop .mbr-gallery-filter ul li:hover": {
+              "color": "@primaryColor"
             },
-            "& when (@bg-type = 'image')": {
-              "background-image": "url(@bg-value)"
+            ".mbr-shop .range-slider": {
+              "padding-bottom": "25px"
             },
-            ".accordion-content": {
-              "-webkit-flex-basis": "100%",
-              "flex-basis": "100%"
+            ".mbr-shop .filter-cost": {
+              "display": "block",
+              "vertical-align": "middle",
+              "max-width": "250px",
+              "text-align": "left",
+              "position": "relative",
+              "margin-bottom": "30px"
             },
-            ".panel-group": {
-              "width": "100%"
+            ".mbr-shop .filter-cost p": {
+              "margin-bottom": "10px",
+              "font-size": "16px",
+              "line-height": "21px",
+              "color": "@primaryColor",
+              "font-weight": "bold"
             },
-            ".panel-text,.header-text,.mbr-section-subtitle": {
-              "color": "#8d97ad"
+            ".mbr-shop .price-controls": {
+              "position": "relative",
+              "height": "36px",
+              "margin-bottom": "30px",
+              "border": "2px solid @primaryColor",
+              "border-radius": "2px",
+              "font-size": "0"
             },
-            ".card": {
-              "-webkit-box-shadow": "0px 0px 30px rgba(115, 128, 157, 0.1)",
-              "box-shadow": "0px 0px 30px rgba(115, 128, 157, 0.1)",
-              "margin-bottom": ".5rem",
+            ".mbr-shop .price-controls label": {
+              "display": "inline-block",
+              "width": "50%",
+              "font-size": "14px",
+              "line-height": "32px",
+              "color": "@primaryColor",
+              "font-weight": "normal",
+              "cursor": "pointer",
+              "margin-bottom": "0"
+            },
+            ".mbr-shop .price-controls label.min-price": {
+              "border-right": "2px solid @primaryColor"
+            },
+            ".mbr-shop .price-controls input": {
+              "width": "100%",
+              "background-color": "#ffffff",
               "border": "none",
-              "border-top-left-radius": ".25rem !important",
-              "border-top-right-radius": ".25rem !important",
-              "border-bottom-right-radius": "0 !important",
-              "border-bottom-left-radius": "0 !important",
-              ".card-header": {
-                "border-radius": "0 !important",
-                "border-bottom": "none !important",
-                "padding": "0",
-                "a.panel-title": {
-                  "-webkit-justify-content": "space-between",
-                  "justify-content": "space-between",
-                  "transition": "all .3s",
-                  "background-color": "@accordionColor",
-                  "margin-bottom": "0",
-                  "font-style": "normal",
-                  "font-weight": "500",
-                  "display": "flex",
-                  "-webkit-align-items": "center",
-                  "align-items": "center",
-                  "text-decoration": "none !important",
-                  "border-top-left-radius": ".25rem",
-                  "border-top-right-radius": ".25rem",
-                  "line-height": "normal",
-                  "&:focus": {
-                    "text-decoration": "none !important"
-                  },
-                  ".sign": {
-                    "padding-right": "1rem"
-                  },
-                  "h4": {
-                    "padding": "1rem 1rem",
-                    "margin-bottom": "0",
-                    "width": "100%"
-                  },
-                  "&[aria-expanded=\"true\"]": {
-                    "background-color": "@activePanelColor",
-                    ".header-text": {
-                      "color": "contrast(@activePanelColor) !important"
-                    }
-                  }
-                }
+              "line-height": "31px",
+              "height": "31px",
+              "text-align": "center",
+              "-webkit-user-select": "none",
+              "-ms-user-select": "none",
+              "user-select": "none"
+            },
+            ".mbr-shop .range-controls": {
+              "position": "relative"
+            },
+            ".mbr-shop .range-controls .scale": {
+              "width": "100%",
+              "height": "2px",
+              "background-color": "rgba(190, 190, 190, 0.3)"
+            },
+            ".mbr-shop .range-controls .bar": {
+              "margin-left": "0",
+              "width": "100%",
+              "height": "2px",
+              "background-color": "@primaryColor"
+            },
+            ".mbr-shop .toggle": {
+              "position": "absolute",
+              "top": "-9px",
+              "width": "4px",
+              "height": "4px",
+              "border": "8px solid @primaryColor",
+              "border-radius": "100%",
+              "box-sizing": "content-box",
+              "background-color": "@primaryColor",
+              "cursor": "pointer"
+            },
+            ".mbr-shop .toggle:hover, .mbr-shop .toggle:active": {
+              "background-color": "#c0a375"
+            },
+            ".mbr-shop .min-toggle": {
+              "left": "0"
+            },
+            ".mbr-shop .max-toggle": {
+              "right": "0"
+            },
+            ".mbr-shop .hided-by-price": {
+              "display": "none"
+            },
+            ".mbr-shop .text-modal": {
+              "padding-right": "30px",
+              "padding-left": "30px"
+            },
+            ".mbr-shop .text-modal .item-button": {
+              "text-align": "left !important"
+            },
+            ".mbr-shop .text-modal .price-block": {
+              "line-height": "1",
+              "border-bottom": "1px dotted #d6d6d6"
+            },
+            ".mbr-shop .text-modal .price-block p": {
+              "display": "inline"
+            },
+            ".mbr-shop .text-modal .price-block span": {
+              "display": "inline",
+              "font-weight": "400",
+              "padding": "10px 0 20px 0"
+            },
+            ".mbr-shop .text-modal .card-description": {
+              "padding-top": "20px",
+              "display": "block",
+              "font-size": "16px",
+              "line-height": "24px",
+              "margin-bottom": "50px"
+            },
+            ".mbr-shop .modal-control-panel": {
+              "padding-right": "0"
+            },
+            ".mbr-shop .modal-cb": {
+              "display": "inline-block",
+              "float": "right",
+              "margin-right": "10px",
+              "margin-left": "10px"
+            },
+            ".mbr-shop .shopItemsModalBg": {
+              "width": "100%",
+              "height": "100%"
+            },
+            ".mbr-shop .close-modal-wrapper": {
+              "cursor": "pointer",
+              "width": "40px",
+              "height": "40px",
+              "position": "absolute",
+              "top": "0",
+              "right": "0"
+            },
+            ".mbr-shop .close-modal-wrapper:after": {
+              "content": "\"\"",
+              "position": "absolute",
+              "width": "40px",
+              "height": "3px",
+              "background-color": "#cccccc",
+              "top": "50%",
+              "right": "5%",
+              "-webkit-transform": "rotate(-45deg)",
+              "transform": "rotate(-45deg)"
+            },
+            ".mbr-shop .close-modal-wrapper:before": {
+              "content": "\"\"",
+              "position": "absolute",
+              "width": "3px",
+              "height": "40px",
+              "background-color": "#cccccc",
+              "right": "50%",
+              "top": "5%",
+              "-webkit-transform": "rotate(-45deg)",
+              "transform": "rotate(-45deg)"
+            },
+            ".mbr-shop .closeModal": {
+              "position": "absolute",
+              "top": "0",
+              "right": "0"
+            },
+            ".mbr-shop .galleryItem .sidebar_wraper": {
+              "text-align": "center"
+            },
+            ".mbr-shop .shopItemsModal .sidebar_wraper": {
+              "text-align": "left"
+            },
+            ".mbr-shop .shopItemsModal .onsale": {
+              "top": "10px",
+              "right": "10px",
+              "border": "1px solid #e7e7e7"
+            },
+            ".mbr-shop .shop-items .onsale, .mbr-shop .bestseller-block .onsale": {
+              "font-size": "15px !important"
+            },
+            ".mbr-shop .item_overlay": {
+              "position": "absolute",
+              "width": "100%",
+              "height": "100%",
+              "z-index": "99",
+              "background": "transparent"
+            },
+            ".mbr-shop .style_overlay": {
+              "position": "absolute",
+              "width": "100%",
+              "height": "100%"
+            },
+            ".mbr-shop .price-range": {
+              "display": "inline-block"
+            },
+            ".mbr-shop .price-range-reset": {
+              "display": "inline-block"
+            },
+            ".mbr-shop .bestsellers .item-button": {
+              "display": "none !important"
+            },
+            ".mbr-shop .range-slider h4": {
+              "margin-bottom": "15px"
+            },
+            ".mbr-shop .mbr-gallery-filter ul": {
+              "padding-left": "0px",
+              "display": "inline-block",
+              "list-style": "none",
+              "margin-bottom": "0px"
+            },
+            ".mbr-shop .categories:after": {
+              "content": "\"\"",
+              "display": "table",
+              "clear": "both"
+            },
+            "@media (min-width: 767px) and (max-width: 1100px)": {
+              ".mbr-shop .col-md-9": {
+                "width": "100%"
               },
-              ".panel-body": {
-                "background": "@panelColor"
+              ".mbr-shop .col-md-3": {
+                "width": "100%"
+              },
+              ".mbr-shop .sidebar-background:after": {
+                "top": "0"
+              },
+              ".mbr-shop .bestseller-block": {
+                "width": "100%",
+                "margin": "0",
+                "display": "inline-block",
+                "float": "left",
+                "padding-top": "15px"
+              },
+              ".mbr-shop .range-slider": {
+                "width": "49%",
+                "margin": "0",
+                "display": "inline-block",
+                "float": "right",
+                "padding-top": "15px"
+              },
+              ".mbr-shop .bestsellers": {
+                "width": "100%"
+              },
+              ".mbr-shop .bestsellers .mbr-gallery-item": {
+                "width": "49%",
+                "display": "inline-block"
+              },
+              ".mbr-shop .sidebar-categories": {
+                "width": "49%",
+                "margin": "0",
+                "display": "inline-block",
+                "padding-top": "15px"
+              },
+              ".mbr-shop .price-range": {
+                "max-width": "250px",
+                "text-align": "center"
+              },
+              ".clearfix:after": {
+                "content": "\"\"",
+                "display": "table",
+                "clear": "both"
               }
             },
-            ".sign": {
-              "color": "#232323"
-            },
-            ".header-text": {
-              "color": "#5b686b"
-            }
-          },
-          "_name": "extAccordion3",
-          "_customHTML": "<section class=\"extAccordion\" group=\"Additional Blocks\" data-bg-video=\"{{bg.type == 'video'&amp;&amp;bg.value.url}}\" mbr-class=\"{'mbr-parallax-background':bg.parallax}\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"9\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"9\" step=\"1\" value=\"0\">\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\">\n        <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubtitle\">\n        <input type=\"color\" title=\"Accordion Color\" name=\"accordionColor\" value=\"#bfebf3\">\n        <input type=\"color\" title=\"Panel Color\" name=\"panelColor\" value=\"#ffffff\">\n        <input type=\"color\" title=\"Active Panel Color\" name=\"activePanelColor\" value=\"#fc643f\">\n        <select title=\"Accordions Count\" name=\"bootstrapAccordion\">\n             <option value=\"1\">1</option>\n             <option value=\"2\">2</option>\n             <option value=\"3\">3</option>\n             <option value=\"4\">4</option>\n             <option value=\"5\">5</option>\n             <option value=\"6\" selected=\"\">6</option>\n        </select>\n        <fieldset type=\"background\" name=\"bg\" parallax=\"\">\n            <input type=\"image\" title=\"Background Image\" value=\"@PROJECT_PATH@/assets/images/background3.jpg\" parallax=\"\">\n            <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected=\"\">\n            <input type=\"video\" title=\"Background Video\" value=\"https://youtu.be/iM-NestDPNQ\">\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay&amp;&amp;bg.type !== 'color'\">\n        <input type=\"range\" inline=\"\" title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.7\" condition=\"overlay&amp;&amp;bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    \n    <div class=\"mbr-overlay\" mbr-if=\"overlay&amp;&amp;bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\">\n    </div>\n    <div class=\"container\">\n        <h2 class=\"mbr-fonts-style mbr-section-title align-center\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\" mbr-theme-style=\"display-2\">Accordion FAQ</h2>\n        <h3 class=\"mbr-fonts-style mbr-section-subtitle align-center\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-5\">Lorem Ipsum Dolor Sit Amet</h3>\n        <div class=\"row justify-content-center\" mbr-class=\"{'pt-4':showTitle || showSubtitle}\">\n            <div class=\"col-md-10 col-lg-8 content-block\">\n            <div class=\"accordion-content\">\n                <div id=\"bootstrap-accordion\" class=\"panel-group accordionStyles accordion \" role=\"tablist\" aria-multiselectable=\"true\">\n                        <div class=\"card\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingOne\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core=\"\" href=\"#collapse1\" aria-expanded=\"false\" aria-controls=\"collapse1\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">1. Saran Wrap Game</h4>\n                                </a>\n                            </div>\n                            <div id=\"collapse1\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, voluptas explicabo molestiae tempore natus velit sed aliquam ut! Culpa asperiores, error ullam qui! Commodi nobis distinctio aperiam totam perferendis quas.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 1\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingTwo\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core=\"\" href=\"#collapse2\" aria-expanded=\"false\" aria-controls=\"collapse2\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">1. Saran Wrap Game</h4>\n                                </a>\n                                \n                            </div>\n                            <div id=\"collapse2\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingTwo\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Id ullam sint repellat! Aliquid, odio magni ab rem eos odit, deleniti laboriosam voluptas inventore, iste suscipit sed ipsa! Ut aliquam, alias.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 2\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingThree\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core=\"\" href=\"#collapse3\" aria-expanded=\"false\" aria-controls=\"collapse3\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">1. Saran Wrap Game</h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse3\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingThree\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Illum sed exercitationem reiciendis suscipit sunt enim, tempore ex debitis fuga dolorum aliquid ea libero atque optio. Molestiae ullam at, quasi alias.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 3\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingFour\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core=\"\" href=\"#collapse4\" aria-expanded=\"false\" aria-controls=\"collapse4\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">1. Saran Wrap Game</h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse4\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingFour\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Voluptate veniam accusamus eaque recusandae modi velit a praesentium ipsa animi facilis repellendus magnam aliquam, numquam debitis fuga laboriosam, quos aut adipisci.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 4\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingFive\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core=\"\" href=\"#collapse5\" aria-expanded=\"false\" aria-controls=\"collapse5\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">\n                                        Lorem Ipsum\n                                    </h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse5\" class=\"panel-collapse noScroll collapse\" data-parent=\"#accordion\" role=\"tabpanel\" aria-labelledby=\"headingFive\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, dolorem, non. Sunt aliquam a odio, sapiente corporis necessitatibus quia assumenda expedita tempora error non deserunt beatae ex, eaque voluptatem quas.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 5\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingSix\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core=\"\" href=\"#collapse6\" aria-expanded=\"false\" aria-controls=\"collapse6\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">\n                                        Lorem Ipsum\n                                    </h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse6\" class=\"panel-collapse noScroll collapse\" data-parent=\"#accordion\" role=\"tabpanel\" aria-labelledby=\"headingSix\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Iusto voluptates dolorem, odit enim! Aspernatur quos ipsa, sit! Repudiandae, laboriosam enim aliquam, similique suscipit quas dicta voluptate repellendus distinctio laborum at!</p>\n                                </div>\n                            </div>\n                        </div>\n                </div>\n            </div>\n            </div>\n    </div>\n    </div>         \n</section>",
-          "_anchor": "extAccordion3-1f",
-          "_isUserblock": true,
-          "_sourceTheme": "creativem4",
-          "_cid": "rPKEZw99zG",
-          "_protectedParams": [],
-          "_global": false,
-          "_once": false,
-          "_params": {}
-        },
-        {
-          "alias": "mobirise4-blocks/components",
-          "_isSecondary": true,
-          "typeCompatible": "!isAMP",
-          "_styles": {
-            "padding-top": "(@paddingTop * 15px)",
-            "padding-bottom": "(@paddingBottom * 15px)",
-            "& when (@bg-type = 'color')": {
-              "background-color": "@bg-value"
-            },
-            "& when (@bg-type = 'image')": {
-              "background-image": "url(@bg-value)"
-            },
-            ".accordion-content": {
-              "-webkit-flex-basis": "100%",
-              "flex-basis": "100%"
-            },
-            ".panel-group": {
-              "width": "100%"
-            },
-            ".panel-text,.header-text,.mbr-section-subtitle": {
-              "color": "#8d97ad"
-            },
-            ".card": {
-              "-webkit-box-shadow": "0px 0px 30px rgba(115, 128, 157, 0.1)",
-              "box-shadow": "0px 0px 30px rgba(115, 128, 157, 0.1)",
-              "margin-bottom": ".5rem",
-              "border": "none",
-              "border-top-left-radius": ".25rem !important",
-              "border-top-right-radius": ".25rem !important",
-              "border-bottom-right-radius": "0 !important",
-              "border-bottom-left-radius": "0 !important",
-              ".card-header": {
-                "border-radius": "0 !important",
-                "border-bottom": "none !important",
-                "padding": "0",
-                "a.panel-title": {
-                  "-webkit-justify-content": "space-between",
-                  "justify-content": "space-between",
-                  "transition": "all .3s",
-                  "background-color": "@accordionColor",
-                  "margin-bottom": "0",
-                  "font-style": "normal",
-                  "font-weight": "500",
-                  "display": "flex",
-                  "-webkit-align-items": "center",
-                  "align-items": "center",
-                  "text-decoration": "none !important",
-                  "border-top-left-radius": ".25rem",
-                  "border-top-right-radius": ".25rem",
-                  "line-height": "normal",
-                  "&:focus": {
-                    "text-decoration": "none !important"
-                  },
-                  ".sign": {
-                    "padding-right": "1rem"
-                  },
-                  "h4": {
-                    "padding": "1rem 1rem",
-                    "margin-bottom": "0",
-                    "width": "100%"
-                  },
-                  "&[aria-expanded=\"true\"]": {
-                    "background-color": "@activePanelColor",
-                    ".header-text": {
-                      "color": "contrast(@activePanelColor) !important"
-                    }
-                  }
-                }
-              },
-              ".panel-body": {
-                "background": "@panelColor"
+            "@media (max-width: 991px) and (min-width: 768px)": {
+              ".mbr-shop .mbr-gallery-item": {
+                "width": "33%"
               }
             },
-            ".sign": {
-              "color": "#232323"
-            },
-            ".header-text": {
-              "color": "#5b686b"
-            }
-          },
-          "_name": "extAccordion3",
-          "_customHTML": "<section class=\"extAccordion\" group=\"Additional Blocks\" data-bg-video=\"{{bg.type == 'video'&amp;&amp;bg.value.url}}\" mbr-class=\"{'mbr-parallax-background':bg.parallax}\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"9\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"9\" step=\"1\" value=\"0\">\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\">\n        <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubtitle\">\n        <input type=\"color\" title=\"Accordion Color\" name=\"accordionColor\" value=\"#bfebf3\">\n        <input type=\"color\" title=\"Panel Color\" name=\"panelColor\" value=\"#ffffff\">\n        <input type=\"color\" title=\"Active Panel Color\" name=\"activePanelColor\" value=\"#fc643f\">\n        <select title=\"Accordions Count\" name=\"bootstrapAccordion\">\n             <option value=\"1\">1</option>\n             <option value=\"2\">2</option>\n             <option value=\"3\">3</option>\n             <option value=\"4\">4</option>\n             <option value=\"5\">5</option>\n             <option value=\"6\" selected=\"\">6</option>\n        </select>\n        <fieldset type=\"background\" name=\"bg\" parallax=\"\">\n            <input type=\"image\" title=\"Background Image\" value=\"@PROJECT_PATH@/assets/images/background3.jpg\" parallax=\"\">\n            <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected=\"\">\n            <input type=\"video\" title=\"Background Video\" value=\"https://youtu.be/iM-NestDPNQ\">\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay&amp;&amp;bg.type !== 'color'\">\n        <input type=\"range\" inline=\"\" title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.7\" condition=\"overlay&amp;&amp;bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    \n    <div class=\"mbr-overlay\" mbr-if=\"overlay&amp;&amp;bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\">\n    </div>\n    <div class=\"container\">\n        <h2 class=\"mbr-fonts-style mbr-section-title align-center\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\" mbr-theme-style=\"display-2\">Accordion FAQ</h2>\n        <h3 class=\"mbr-fonts-style mbr-section-subtitle align-center\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-5\">Lorem Ipsum Dolor Sit Amet</h3>\n        <div class=\"row justify-content-center\" mbr-class=\"{'pt-4':showTitle || showSubtitle}\">\n            <div class=\"col-md-10 col-lg-8 content-block\">\n            <div class=\"accordion-content\">\n                <div id=\"bootstrap-accordion\" class=\"panel-group accordionStyles accordion \" role=\"tablist\" aria-multiselectable=\"true\">\n                        <div class=\"card\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingOne\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core=\"\" href=\"#collapse1\" aria-expanded=\"false\" aria-controls=\"collapse1\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">1. Saran Wrap Game</h4>\n                                </a>\n                            </div>\n                            <div id=\"collapse1\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, voluptas explicabo molestiae tempore natus velit sed aliquam ut! Culpa asperiores, error ullam qui! Commodi nobis distinctio aperiam totam perferendis quas.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 1\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingTwo\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core=\"\" href=\"#collapse2\" aria-expanded=\"false\" aria-controls=\"collapse2\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">1. Saran Wrap Game</h4>\n                                </a>\n                                \n                            </div>\n                            <div id=\"collapse2\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingTwo\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Id ullam sint repellat! Aliquid, odio magni ab rem eos odit, deleniti laboriosam voluptas inventore, iste suscipit sed ipsa! Ut aliquam, alias.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 2\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingThree\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core=\"\" href=\"#collapse3\" aria-expanded=\"false\" aria-controls=\"collapse3\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">1. Saran Wrap Game</h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse3\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingThree\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Illum sed exercitationem reiciendis suscipit sunt enim, tempore ex debitis fuga dolorum aliquid ea libero atque optio. Molestiae ullam at, quasi alias.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 3\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingFour\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core=\"\" href=\"#collapse4\" aria-expanded=\"false\" aria-controls=\"collapse4\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">1. Saran Wrap Game</h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse4\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingFour\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Voluptate veniam accusamus eaque recusandae modi velit a praesentium ipsa animi facilis repellendus magnam aliquam, numquam debitis fuga laboriosam, quos aut adipisci.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 4\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingFive\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core=\"\" href=\"#collapse5\" aria-expanded=\"false\" aria-controls=\"collapse5\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">\n                                        Lorem Ipsum\n                                    </h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse5\" class=\"panel-collapse noScroll collapse\" data-parent=\"#accordion\" role=\"tabpanel\" aria-labelledby=\"headingFive\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, dolorem, non. Sunt aliquam a odio, sapiente corporis necessitatibus quia assumenda expedita tempora error non deserunt beatae ex, eaque voluptatem quas.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 5\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingSix\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core=\"\" href=\"#collapse6\" aria-expanded=\"false\" aria-controls=\"collapse6\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">\n                                        Lorem Ipsum\n                                    </h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse6\" class=\"panel-collapse noScroll collapse\" data-parent=\"#accordion\" role=\"tabpanel\" aria-labelledby=\"headingSix\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Iusto voluptates dolorem, odit enim! Aspernatur quos ipsa, sit! Repudiandae, laboriosam enim aliquam, similique suscipit quas dicta voluptate repellendus distinctio laborum at!</p>\n                                </div>\n                            </div>\n                        </div>\n                </div>\n            </div>\n            </div>\n    </div>\n    </div>         \n</section>",
-          "_anchor": "extAccordion3-1g",
-          "_isUserblock": true,
-          "_sourceTheme": "creativem4",
-          "_cid": "rPKF09yuIv",
-          "_protectedParams": [],
-          "_global": false,
-          "_once": false,
-          "_params": {}
-        },
-        {
-          "alias": "mobirise4-blocks/components",
-          "_isSecondary": true,
-          "typeCompatible": "!isAMP",
-          "_styles": {
-            "padding-top": "(@paddingTop * 15px)",
-            "padding-bottom": "(@paddingBottom * 15px)",
-            "& when (@bg-type = 'color')": {
-              "background-color": "@bg-value"
-            },
-            "& when (@bg-type = 'image')": {
-              "background-image": "url(@bg-value)"
-            },
-            ".accordion-content": {
-              "-webkit-flex-basis": "100%",
-              "flex-basis": "100%"
-            },
-            ".panel-group": {
-              "width": "100%"
-            },
-            ".panel-text,.header-text,.mbr-section-subtitle": {
-              "color": "#8d97ad"
-            },
-            ".card": {
-              "-webkit-box-shadow": "0px 0px 30px rgba(115, 128, 157, 0.1)",
-              "box-shadow": "0px 0px 30px rgba(115, 128, 157, 0.1)",
-              "margin-bottom": ".5rem",
-              "border": "none",
-              "border-top-left-radius": ".25rem !important",
-              "border-top-right-radius": ".25rem !important",
-              "border-bottom-right-radius": "0 !important",
-              "border-bottom-left-radius": "0 !important",
-              ".card-header": {
-                "border-radius": "0 !important",
-                "border-bottom": "none !important",
-                "padding": "0",
-                "a.panel-title": {
-                  "-webkit-justify-content": "space-between",
-                  "justify-content": "space-between",
-                  "transition": "all .3s",
-                  "background-color": "@accordionColor",
-                  "margin-bottom": "0",
-                  "font-style": "normal",
-                  "font-weight": "500",
-                  "display": "flex",
-                  "-webkit-align-items": "center",
-                  "align-items": "center",
-                  "text-decoration": "none !important",
-                  "border-top-left-radius": ".25rem",
-                  "border-top-right-radius": ".25rem",
-                  "line-height": "normal",
-                  "&:focus": {
-                    "text-decoration": "none !important"
-                  },
-                  ".sign": {
-                    "padding-right": "1rem"
-                  },
-                  "h4": {
-                    "padding": "1rem 1rem",
-                    "margin-bottom": "0",
-                    "width": "100%"
-                  },
-                  "&[aria-expanded=\"true\"]": {
-                    "background-color": "@activePanelColor",
-                    ".header-text": {
-                      "color": "contrast(@activePanelColor) !important"
-                    }
-                  }
-                }
+            "@media (max-width: 500px)": {
+              ".mbr-shop .shopItemsModal": {
+                "padding": "50px 10px 10px 10px"
               },
-              ".panel-body": {
-                "background": "@panelColor"
+              ".mbr-shop .shop-title": {
+                "max-width": "100%"
+              },
+              ".mbr-shop .mbr-gallery-item": {
+                "width": "100%"
               }
             },
-            ".sign": {
-              "color": "#232323"
+            "@media (max-width: 1200px)": {
+              ".mbr-shop .sort-buttons": {
+                "text-align": "center",
+                "margin-right": "0 !important"
+              }
             },
-            ".header-text": {
-              "color": "#5b686b"
+            "@media (max-width: 767px)": {
+              ".mbr-shop .image-modal": {
+                "text-align": "center"
+              },
+              ".mbr-shop .image-modal img": {
+                "max-height": "50vh",
+                "width": "auto",
+                "max-width": "100%"
+              },
+              ".mbr-shop .shopItemsModal": {
+                "top": "15%",
+                "bottom": "70px",
+                "left": "10%",
+                "width": "80%"
+              },
+              ".mbr-shop .shopItemsModal .image-modal": {
+                "padding-right": "0"
+              },
+              ".mbr-shop .sidebar-background:after": {
+                "top": "-1%"
+              }
+            },
+            "@media (max-width: 1100px)": {
+              ".mbr-shop .shopItemsModal": {
+                "max-height": "85vh",
+                "width": "90%",
+                "left": "5%",
+                "margin-left": "0"
+              },
+              ".mbr-shop .sort-buttons": {
+                "margin-right": "21px"
+              },
+              ".mbr-shop .sidebar-background:after": {
+                "right": "0",
+                "width": "100%"
+              },
+              ".mbr-shop .text-modal .card-description": {
+                "width": "100%"
+              },
+              ".mbr-shop .text-modal .price-block": {
+                "width": "100%"
+              },
+              ".mbr-shop .text-modal h4": {
+                "padding-top": "30px"
+              }
+            },
+            ".shopItemsModal_wraper .mbr-section-btn": {
+              "display": "block !important"
+            },
+            ".range-slider .mbr-section-btn": {
+              "margin": "0"
+            },
+            ".oldprice": {
+              "padding-left": ".8rem !important",
+              "text-decoration": "line-through"
+            },
+            ".item-title": {
+              "color": "@primaryColor"
+            },
+            ".mbr-gallery-item": {
+              ".galleryItem": {
+                "border-radius": "8px",
+                "overflow": "hidden"
+              },
+              ".sidebar_wraper": {
+                "background-color": "rgba(255, 255, 255, 0.8)",
+                "padding": ".5rem",
+                "position": "absolute",
+                "bottom": "0",
+                "width": "100%",
+                "color": "@infoColor",
+                ".mbr-section-btn": {
+                  "text-align": "right"
+                },
+                ".item-title": {
+                  "text-align": "right"
+                },
+                ".item-subtitle": {
+                  "text-align": "right"
+                },
+                ".price-block": {
+                  "text-align": "right"
+                }
+              },
+              "&:hover": {
+                ".style_overlay": {
+                  "background": "@itemOverlay",
+                  "opacity": "@itemOverlayOpacity",
+                  "transition": "all .5s"
+                },
+                ".img_wraper": {
+                  "img": {
+                    "-webkit-filter": "grayscale(0)",
+                    "-moz-filter": "grayscale(0)",
+                    "-ms-filter": "grayscale(0)",
+                    "-o-filter": "grayscale(0)",
+                    "filter": "none"
+                  }
+                }
+              }
+            },
+            "& when (@shop__showPriceRange)": {
+              ".range-controls": {
+                "display": "block !important"
+              }
+            },
+            "& when (@shop__showSortButtons)": {
+              ".sort-buttons": {
+                "display": "block !important"
+              }
+            },
+            "@media screen and (~'-ms-high-contrast: active'), (~'-ms-high-contrast: none')": {
+              ".shopItemsModal.row": {
+                "position": "absolute !important",
+                "top": "calc(50% ~'-' 300px) !important",
+                "left": "calc(50% ~'-' 500px) !important"
+              }
+            },
+            "LI": {
+              "color": "@primaryColor"
+            },
+            ".sidebar-title": {
+              "color": "@primaryColor"
+            },
+            "@media (max-width: 576px)": {
+              ".mbr-shop .mbr-gallery-item, .wrapper-shop-items, .sidebar-block, .sidebar-title, .sidebar, .categories": {
+                "padding-right": "0px",
+                "padding-left": "0px"
+              },
+              ".filter-cost": {
+                "max-width": "100%!important"
+              },
+              ".range-slider, .categories, .bestseller-block": {
+                "text-align": "center"
+              }
             }
           },
-          "_name": "extAccordion3",
-          "_customHTML": "<section class=\"extAccordion\" group=\"Additional Blocks\" data-bg-video=\"{{bg.type == 'video'&amp;&amp;bg.value.url}}\" mbr-class=\"{'mbr-parallax-background':bg.parallax}\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline=\"\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"9\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline=\"\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"9\" step=\"1\" value=\"0\">\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\">\n        <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubtitle\">\n        <input type=\"color\" title=\"Accordion Color\" name=\"accordionColor\" value=\"#bfebf3\">\n        <input type=\"color\" title=\"Panel Color\" name=\"panelColor\" value=\"#ffffff\">\n        <input type=\"color\" title=\"Active Panel Color\" name=\"activePanelColor\" value=\"#fc643f\">\n        <select title=\"Accordions Count\" name=\"bootstrapAccordion\">\n             <option value=\"1\">1</option>\n             <option value=\"2\">2</option>\n             <option value=\"3\">3</option>\n             <option value=\"4\">4</option>\n             <option value=\"5\">5</option>\n             <option value=\"6\" selected=\"\">6</option>\n        </select>\n        <fieldset type=\"background\" name=\"bg\" parallax=\"\">\n            <input type=\"image\" title=\"Background Image\" value=\"@PROJECT_PATH@/assets/images/background3.jpg\" parallax=\"\">\n            <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected=\"\">\n            <input type=\"video\" title=\"Background Video\" value=\"https://youtu.be/iM-NestDPNQ\">\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\">\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay&amp;&amp;bg.type !== 'color'\">\n        <input type=\"range\" inline=\"\" title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.7\" condition=\"overlay&amp;&amp;bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    \n    <div class=\"mbr-overlay\" mbr-if=\"overlay&amp;&amp;bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\">\n    </div>\n    <div class=\"container\">\n        <h2 class=\"mbr-fonts-style mbr-section-title align-center\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\" mbr-theme-style=\"display-2\">Accordion FAQ</h2>\n        <h3 class=\"mbr-fonts-style mbr-section-subtitle align-center\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-5\">Lorem Ipsum Dolor Sit Amet</h3>\n        <div class=\"row justify-content-center\" mbr-class=\"{'pt-4':showTitle || showSubtitle}\">\n            <div class=\"col-md-10 col-lg-8 content-block\">\n            <div class=\"accordion-content\">\n                <div id=\"bootstrap-accordion\" class=\"panel-group accordionStyles accordion \" role=\"tablist\" aria-multiselectable=\"true\">\n                        <div class=\"card\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingOne\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core=\"\" href=\"#collapse1\" aria-expanded=\"false\" aria-controls=\"collapse1\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">1. Saran Wrap Game</h4>\n                                </a>\n                            </div>\n                            <div id=\"collapse1\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus, voluptas explicabo molestiae tempore natus velit sed aliquam ut! Culpa asperiores, error ullam qui! Commodi nobis distinctio aperiam totam perferendis quas.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 1\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingTwo\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core=\"\" href=\"#collapse2\" aria-expanded=\"false\" aria-controls=\"collapse2\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">1. Saran Wrap Game</h4>\n                                </a>\n                                \n                            </div>\n                            <div id=\"collapse2\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingTwo\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Id ullam sint repellat! Aliquid, odio magni ab rem eos odit, deleniti laboriosam voluptas inventore, iste suscipit sed ipsa! Ut aliquam, alias.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 2\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingThree\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core=\"\" href=\"#collapse3\" aria-expanded=\"false\" aria-controls=\"collapse3\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">1. Saran Wrap Game</h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse3\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingThree\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Illum sed exercitationem reiciendis suscipit sunt enim, tempore ex debitis fuga dolorum aliquid ea libero atque optio. Molestiae ullam at, quasi alias.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 3\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingFour\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core=\"\" href=\"#collapse4\" aria-expanded=\"false\" aria-controls=\"collapse4\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">1. Saran Wrap Game</h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse4\" class=\"panel-collapse noScroll collapse\" role=\"tabpanel\" aria-labelledby=\"headingFour\" data-parent=\"#accordion\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Voluptate veniam accusamus eaque recusandae modi velit a praesentium ipsa animi facilis repellendus magnam aliquam, numquam debitis fuga laboriosam, quos aut adipisci.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 4\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingFive\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core=\"\" href=\"#collapse5\" aria-expanded=\"false\" aria-controls=\"collapse5\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">\n                                        Lorem Ipsum\n                                    </h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse5\" class=\"panel-collapse noScroll collapse\" data-parent=\"#accordion\" role=\"tabpanel\" aria-labelledby=\"headingFive\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, dolorem, non. Sunt aliquam a odio, sapiente corporis necessitatibus quia assumenda expedita tempora error non deserunt beatae ex, eaque voluptatem quas.</p>\n                                </div>\n                            </div>\n                        </div>\n                \n                        <div class=\"card\" mbr-if=\"bootstrapAccordion > 5\">\n                            <div class=\"card-header\" role=\"tab\" id=\"headingSix\">\n                                <a role=\"button\" class=\"collapsed panel-title\" data-toggle=\"collapse\" data-core=\"\" href=\"#collapse6\" aria-expanded=\"false\" aria-controls=\"collapse6\">\n                                    <h4 class=\"mbr-fonts-style header-text\" mbr-theme-style=\"display-5\" data-app-selector=\".header-text\">\n                                        Lorem Ipsum\n                                    </h4>\n\n                                </a>\n                            </div>\n                            <div id=\"collapse6\" class=\"panel-collapse noScroll collapse\" data-parent=\"#accordion\" role=\"tabpanel\" aria-labelledby=\"headingSix\">\n                                <div class=\"panel-body p-4\">\n                                    <p class=\"mbr-fonts-style panel-text mbr-text\" mbr-theme-style=\"display-7\" data-app-selector=\".panel-text\">\n                                       Lorem Ipsum dolor sit amet, consectetur adipisicing elit. Iusto voluptates dolorem, odit enim! Aspernatur quos ipsa, sit! Repudiandae, laboriosam enim aliquam, similique suscipit quas dicta voluptate repellendus distinctio laborum at!</p>\n                                </div>\n                            </div>\n                        </div>\n                </div>\n            </div>\n            </div>\n    </div>\n    </div>         \n</section>",
-          "_anchor": "extAccordion3-1e",
-          "_isUserblock": true,
-          "_sourceTheme": "creativem4",
-          "_cid": "rPKEYR4Khy",
-          "_protectedParams": [],
+          "_name": "extShop1",
+          "_customHTML": "<section class=\"extShop mbr-gallery\" group=\"Additional Blocks\" once=\"shops\" plugins=\"mobirise-shop,Gallery\">\n\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\" checked>\n        <input type=\"range\" title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"9\" step=\"1\" value=\"3\" inline>\n        <input type=\"range\" title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"9\" step=\"1\" value=\"3\" inline>\n        <input type=\"color\" title=\"Item Hover Overlay\" name=\"itemOverlay\" value=\"#55b4d4\">\n        <input type=\"range\" inline title=\"Hover Opacity\" name=\"itemOverlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\">\n        <input type=\"color\" title=\"On Sale Bg\" name=\"saleBg\" value=\"#149dcc\">\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n        <input type=\"shop\" title=\"Shop\" name=\"shop\" buttons=\"black\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div mbr-class=\"{'container': !fullWidth}\">\n        <div mbr-shop=\"shop\" class=\"mbr-shop\" sorting></div>\n    </div>\n\n</section>",
+          "_cid": "rTEE7eZnOm",
+          "_protectedParams": [
+            "shop__showSidebar",
+            "shop__reverseSidebar",
+            "shop__showSortButtons",
+            "shop__showBestSellers",
+            "shop__showPriceRange",
+            "shop__showTags",
+            "text_all",
+            "sidebar1",
+            "sidebar2",
+            "sidebar3",
+            "shop__filtersTextStyle",
+            "buttons_default_class",
+            "filter_by_d",
+            "filter_by_pu",
+            "filter_by_pd",
+            "price_range",
+            "price_range_reset",
+            "shop"
+          ],
           "_global": false,
-          "_once": false,
-          "_params": {}
+          "_once": "shops",
+          "_params": {
+            "shop__showSidebar": false,
+            "shop__reverseSidebar": false,
+            "shop__showSortButtons": true,
+            "shop__showBestSellers": true,
+            "shop__showPriceRange": true,
+            "shop__showTags": true,
+            "text_all": "All",
+            "sidebar1": "Best Sellers",
+            "sidebar2": "Price Range",
+            "sidebar3": "Filter",
+            "shop__filtersTextStyle": "display-7",
+            "buttons_default_class": "black",
+            "filter_by_d": "<a class=\"btn btn-sm btn-black disableSortButton\" href=\"\">Default sorting</a>",
+            "filter_by_pu": "<a class=\"btn btn-sm btn-black-outline disableSortButton\" href=\"\">Price: low to high</a>",
+            "filter_by_pd": "<a class=\"btn btn-sm btn-black-outline disableSortButton\" href=\"\">Price: high to low</a>",
+            "price_range": "<a class=\"btn btn-sm btn-primary\" data-app-btn=\"true\" href=\"\">Filter</a>",
+            "price_range_reset": "<a class=\"btn btn-sm btn-secondary\" data-app-btn=\"true\" href=\"\">Show all</a>",
+            "shop": [
+              {
+                "tags": "Awesome",
+                "bestSeller": false,
+                "onSale": false,
+                "oldPrice": false,
+                "itemTitle": "Brown Glasses",
+                "itemDescription": "Casual shoes (contact us for sizing)<br><br><ul><li>Lightweight textured fabric</li> <li>Rounded v-neckline</li> <li>Pom pom trims</li> <li>Regular fit – true to size</li></ul> <br>Duis auctor hendrerit nisi, at lacinia ex vulputate quis. Suspendisse convallis iaculis tortor, quis mattis lectus rutrum a.<br><br>Product code: <b>385DDF5p</b>",
+                "itemPriceTitle": "From: ",
+                "itemPrice": "$31",
+                "oldPriceValue": "$62",
+                "sale": "-50%",
+                "button": "<a data-app-btn=\"true\" class=\"btn btn-black\" data-app-placeholder=\"Type Text\" href=\"https://mobirise.com\">Buy now!</a>",
+                "image": "@PROJECT_PATH@/assets/images/shop0.jpg",
+                "thumb": "@PROJECT_PATH@/assets/images/shop0.jpg",
+                "customStyle5": "display-5",
+                "customStyle7": "display-7",
+                "customStyleSale": "display-7",
+                "customStyleTags": "display-4",
+                "caption": "Type caption here",
+                "active": true
+              },
+              {
+                "tags": "Wonderful",
+                "bestSeller": false,
+                "onSale": false,
+                "oldPrice": false,
+                "itemTitle": "Men's Shoes",
+                "itemDescription": "Casual shoes (contact us for sizing)<br><br><ul><li>Lightweight textured fabric</li> <li>Rounded v-neckline</li> <li>Pom pom trims</li> <li>Regular fit – true to size</li></ul> <br>Duis auctor hendrerit nisi, at lacinia ex vulputate quis. Suspendisse convallis iaculis tortor, quis mattis lectus rutrum a.<br><br>Product code: <b>385DDF5p</b>",
+                "itemPriceTitle": "From: ",
+                "itemPrice": "$7",
+                "oldPriceValue": "$14",
+                "sale": "-50%",
+                "button": "<a data-app-btn=\"true\" class=\"btn btn-black\" data-app-placeholder=\"Type Text\" href=\"https://mobirise.com\">Buy now!</a>",
+                "image": "@PROJECT_PATH@/assets/images/shop1.jpg",
+                "thumb": "@PROJECT_PATH@/assets/images/shop1.jpg",
+                "customStyle5": "display-5",
+                "customStyle7": "display-7",
+                "customStyleSale": "display-7",
+                "customStyleTags": "display-4",
+                "caption": "Type caption here",
+                "active": false
+              },
+              {
+                "tags": "Creative",
+                "bestSeller": false,
+                "onSale": true,
+                "oldPrice": true,
+                "itemTitle": "Blue Backpack",
+                "itemDescription": "Casual shoes (contact us for sizing)<br><br><ul><li>Lightweight textured fabric</li> <li>Rounded v-neckline</li> <li>Pom pom trims</li> <li>Regular fit – true to size</li></ul> <br>Duis auctor hendrerit nisi, at lacinia ex vulputate quis. Suspendisse convallis iaculis tortor, quis mattis lectus rutrum a.<br><br>Product code: <b>385DDF5p</b>",
+                "itemPriceTitle": "From: ",
+                "itemPrice": "$78",
+                "oldPriceValue": "$156",
+                "sale": "-50%",
+                "button": "<a data-app-btn=\"true\" class=\"btn btn-black\" data-app-placeholder=\"Type Text\" href=\"https://mobirise.com\">Buy now!</a>",
+                "image": "@PROJECT_PATH@/assets/images/shop2.jpg",
+                "thumb": "@PROJECT_PATH@/assets/images/shop2.jpg",
+                "customStyle5": "display-5",
+                "customStyle7": "display-7",
+                "customStyleSale": "display-7",
+                "customStyleTags": "display-4",
+                "caption": "Type caption here",
+                "active": false
+              },
+              {
+                "tags": "Awesome",
+                "bestSeller": false,
+                "onSale": false,
+                "oldPrice": false,
+                "itemTitle": "Red Snapback",
+                "itemDescription": "Casual shoes (contact us for sizing)<br><br><ul><li>Lightweight textured fabric</li> <li>Rounded v-neckline</li> <li>Pom pom trims</li> <li>Regular fit – true to size</li></ul> <br>Duis auctor hendrerit nisi, at lacinia ex vulputate quis. Suspendisse convallis iaculis tortor, quis mattis lectus rutrum a.<br><br>Product code: <b>385DDF5p</b>",
+                "itemPriceTitle": "From: ",
+                "itemPrice": "$98",
+                "oldPriceValue": "$196",
+                "sale": "-50%",
+                "button": "<a data-app-btn=\"true\" class=\"btn btn-black\" data-app-placeholder=\"Type Text\" href=\"https://mobirise.com\">Buy now!</a>",
+                "image": "@PROJECT_PATH@/assets/images/shop3.jpg",
+                "thumb": "@PROJECT_PATH@/assets/images/shop3.jpg",
+                "customStyle5": "display-5",
+                "customStyle7": "display-7",
+                "customStyleSale": "display-7",
+                "customStyleTags": "display-4",
+                "caption": "Type caption here",
+                "active": false
+              },
+              {
+                "tags": "Responsive",
+                "bestSeller": false,
+                "onSale": false,
+                "oldPrice": false,
+                "itemTitle": "Black Glasses",
+                "itemDescription": "Casual shoes (contact us for sizing)<br><br><ul><li>Lightweight textured fabric</li> <li>Rounded v-neckline</li> <li>Pom pom trims</li> <li>Regular fit – true to size</li></ul> <br>Duis auctor hendrerit nisi, at lacinia ex vulputate quis. Suspendisse convallis iaculis tortor, quis mattis lectus rutrum a.<br><br>Product code: <b>385DDF5p</b>",
+                "itemPriceTitle": "From: ",
+                "itemPrice": "$81",
+                "oldPriceValue": "$162",
+                "sale": "-50%",
+                "button": "<a data-app-btn=\"true\" class=\"btn btn-black\" data-app-placeholder=\"Type Text\" href=\"https://mobirise.com\">Buy now!</a>",
+                "image": "@PROJECT_PATH@/assets/images/shop4.jpg",
+                "thumb": "@PROJECT_PATH@/assets/images/shop4.jpg",
+                "customStyle5": "display-5",
+                "customStyle7": "display-7",
+                "customStyleSale": "display-7",
+                "customStyleTags": "display-4",
+                "caption": "Type caption here",
+                "active": false
+              },
+              {
+                "tags": "Creative",
+                "bestSeller": false,
+                "onSale": false,
+                "oldPrice": false,
+                "itemTitle": "Women's Shoes",
+                "itemDescription": "Casual shoes (contact us for sizing)<br><br><ul><li>Lightweight textured fabric</li> <li>Rounded v-neckline</li> <li>Pom pom trims</li> <li>Regular fit – true to size</li></ul> <br>Duis auctor hendrerit nisi, at lacinia ex vulputate quis. Suspendisse convallis iaculis tortor, quis mattis lectus rutrum a.<br><br>Product code: <b>385DDF5p</b>",
+                "itemPriceTitle": "From: ",
+                "itemPrice": "$45",
+                "oldPriceValue": "$90",
+                "sale": "-50%",
+                "button": "<a data-app-btn=\"true\" class=\"btn btn-black\" data-app-placeholder=\"Type Text\" href=\"https://mobirise.com\">Buy now!</a>",
+                "image": "@PROJECT_PATH@/assets/images/shop5.jpg",
+                "thumb": "@PROJECT_PATH@/assets/images/shop5.jpg",
+                "customStyle5": "display-5",
+                "customStyle7": "display-7",
+                "customStyleSale": "display-7",
+                "customStyleTags": "display-4",
+                "caption": "Type caption here",
+                "active": false
+              },
+              {
+                "tags": "Animated",
+                "bestSeller": false,
+                "onSale": false,
+                "oldPrice": false,
+                "itemTitle": "Pink Backpack",
+                "itemDescription": "Casual shoes (contact us for sizing)<br><br><ul><li>Lightweight textured fabric</li> <li>Rounded v-neckline</li> <li>Pom pom trims</li> <li>Regular fit – true to size</li></ul> <br>Duis auctor hendrerit nisi, at lacinia ex vulputate quis. Suspendisse convallis iaculis tortor, quis mattis lectus rutrum a.<br><br>Product code: <b>385DDF5p</b>",
+                "itemPriceTitle": "From: ",
+                "itemPrice": "$82",
+                "oldPriceValue": "$164",
+                "sale": "-50%",
+                "button": "<a data-app-btn=\"true\" class=\"btn btn-black\" data-app-placeholder=\"Type Text\" href=\"https://mobirise.com\">Buy now!</a>",
+                "image": "@PROJECT_PATH@/assets/images/shop6.jpg",
+                "thumb": "@PROJECT_PATH@/assets/images/shop6.jpg",
+                "customStyle5": "display-5",
+                "customStyle7": "display-7",
+                "customStyleSale": "display-7",
+                "customStyleTags": "display-4",
+                "caption": "Type caption here",
+                "active": false
+              },
+              {
+                "tags": "Awesome",
+                "bestSeller": false,
+                "onSale": false,
+                "oldPrice": false,
+                "itemTitle": "Red Cap",
+                "itemDescription": "Casual shoes (contact us for sizing)<br><br><ul><li>Lightweight textured fabric</li> <li>Rounded v-neckline</li> <li>Pom pom trims</li> <li>Regular fit – true to size</li></ul> <br>Duis auctor hendrerit nisi, at lacinia ex vulputate quis. Suspendisse convallis iaculis tortor, quis mattis lectus rutrum a.<br><br>Product code: <b>385DDF5p</b>",
+                "itemPriceTitle": "From: ",
+                "itemPrice": "$57",
+                "oldPriceValue": "$114",
+                "sale": "-50%",
+                "button": "<a data-app-btn=\"true\" class=\"btn btn-black\" data-app-placeholder=\"Type Text\" href=\"https://mobirise.com\">Buy now!</a>",
+                "image": "@PROJECT_PATH@/assets/images/shop7.jpg",
+                "thumb": "@PROJECT_PATH@/assets/images/shop7.jpg",
+                "customStyle5": "display-5",
+                "customStyle7": "display-7",
+                "customStyleSale": "display-7",
+                "customStyleTags": "display-4",
+                "caption": "Type caption here",
+                "active": false
+              }
+            ]
+          },
+          "_anchor": "extShop1-1w"
         },
         {
           "_params": {
@@ -3822,11 +4218,11 @@
           "_isUserblock": true,
           "_sourceTheme": "creativem4",
           "_cid": "rOc2rK4zrA",
+          "_anchor": "menu01-1q",
           "_protectedParams": [],
           "_global": true,
           "_once": "menu",
-          "_params": {},
-          "_anchor": "menu01-1q"
+          "_params": {}
         },
         {
           "alias": false,
@@ -4060,11 +4456,11 @@
           "_name": "header01",
           "_customHTML": "<section group=\"Headers\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{\n    'mbr-fullscreen': fullScreen,\n    'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"25\" step=\"1\" value=\"0\" condition=\"fullScreen == false\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"25\" step=\"1\" value=\"0\" condition=\"fullScreen == false\">\n        <header>Show / Hide</header>\n        <input type=\"checkbox\" title=\"BG Layer\" name=\"bglayer\" checked>\n        <input type=\"color\" title=\"BG Layer Color\" name=\"bgLayerColor\" value=\"#bfebf3\" condition=\"bglayer\">\n        <input type=\"checkbox\" title=\"Arrow\" name=\"showArrow\">\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubTitle\">\n        <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n        <input type=\"checkbox\" title=\"Button\" name=\"showButtons\" checked>\n        <input type=\"checkbox\" title=\"Animation\" name=\"showAnimation\" checked>\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"../_images/background1.jpg\" parallax>\n            <input type=\"color\" title=\"Color\" value=\"#ffffff\" selected>\n            <input type=\"video\" title=\"Video\" value=\"https://www.youtube.com/watch?v=36YgDDJ7XSc\">\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#716c80\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.3\" condition=\"overlay && bg.type !== 'color'\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n    <div class=\"container align-center\">\n        <div class=\"row\">\n            <div class=\"col-xl-9\">\n                <h1 class=\"mbr-section-title mbr-regular pb-3 align-left mbr-fonts-style mbr-bold\" mbr-theme-style=\"display-1\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">THE PLAYCODE RIDDLE QUIZ</h1>\n                <h3 class=\"mbr-section-subtitle align-left align-left mbr-regular pb-3 mbr-fonts-style\" mbr-theme-style=\"display-5\" mbr-if=\"showSubTitle\">Lorem ipsum dolor sit amet, consectetur adipiscing\n                    elit.</h3>\n                <p class=\"mbr-text pb-3 align-left mbr-fonts-style mbr-semibold\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">\n                    Take part of this fun riddle's quiz and get the chance to win a<b> $10 eGift Card</b>&nbsp;Now!</p>\n            </div>\n            <div class=\"col-xl-3 align-center d-flex flex-column\">\n                <div mbr-buttons mbr-theme-style=\"display-4\" class=\"align-left mbr-section-btn\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\"><a class=\"btn btn-md btn-primary\" href=\"https://docs.google.com/forms/d/e/1FAIpQLSfQrCcc8UjnqASugn3oOoRDrvBb-UxGpolxjozR3pKVRyGaoQ/viewform\" data-app-placeholder=\"Type Text\">TAKE QUIZ NOW</a></div>\n                <div class=\"wrap\">\n                    <img src=\"../_images/svg/1.svg\" alt=\"Mobirise\" class=\"image-1 animated-elements1\">\n                    <img src=\"../_images/svg/2.svg\" alt=\"Mobirise\" class=\"image-2 animated-elements2\">\n                    <img src=\"../_images/svg/3.svg\" alt=\"Mobirise\" class=\"image-3 animated-elements3\">\n                    <img src=\"../_images/svg/4.svg\" alt=\"Mobirise\" class=\"image-4 animated-elements4\">\n                    <img src=\"../_images/svg/5.svg\" alt=\"Mobirise\" class=\"image-5 animated-elements5\">\n                    <img src=\"../_images/svg/6.svg\" alt=\"Mobirise\" class=\"image-6 animated-elements6\">\n                </div>\n            </div>\n        </div>\n    </div>\n    <div mbr-if=\"showArrow\" class=\"mbr-arrow hidden-sm-down\" aria-hidden=\"true\">\n        <a href=\"#next\">\n            <i class=\"mbri-down mbr-iconfont\"></i>\n        </a>\n    </div>\n</section>",
           "_cid": "rT6emNgRDC",
+          "_anchor": "header01-1s",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
-          "_params": {},
-          "_anchor": "header01-1s"
+          "_params": {}
         },
         {
           "alias": "mobirise4-blocks/components",
@@ -4143,11 +4539,11 @@
           "_name": "extFooter22",
           "_customHTML": "<section class=\"extFooter\" group=\"Additional Blocks\" global mbr-class=\"{'mbr-reveal': reveal, 'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"5\">\n        <input type=\"checkbox\" title=\"Show Logo\" name=\"showLogo\" checked>\n        <input type=\"range\" title=\"Logo Size\" inline name=\"logoSize\" min=\"3.8\" max=\"8\" step=\"0.1\" value=\"3.8\" condition=\"showLogo\">\n        <input type=\"checkbox\" title=\"Show Text\" name=\"showText\" checked>\n        <input type=\"checkbox\" title=\"Show Icons\" name=\"showIcons\" checked>\n        <select title=\"Icons Count\" name=\"iconsCount\" condition=\"showIcons\">\n            <option value=\"1\">1</option>\n            <option value=\"2\">2</option>\n            <option value=\"3\" selected>3</option>\n            <option value=\"4\">4</option>\n            <option value=\"5\">5</option>\n        </select>\n        <input type=\"color\" title=\"Circle Color\" name=\"circleColor\" value=\"#00c48c\" condition=\"showIcons\">\n        <input type=\"color\" title=\"Circle on Hover\" name=\"circleColor2\" value=\"#5b686b\" condition=\"showIcons\">\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/img/03.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#3C3C3C\" condition=\"overlay&&bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" condition=\"overlay&&bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay&&bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n    <div class=\"container\">\n        <div class=\"row align-center justify-content-center align-items-center\">\n            <div class=\"logo-section col-sm-12 col-lg-4\" mbr-if=\"showLogo\">\n                <a href=\"#\"><img src=\"@PROJECT_PATH@/assets/images/logo-playcode-qr-252x252.jpg\" height=\"128\" alt=\"Mobirise\" mbr-style=\"{'height': logoSize + 'rem'}\" title>\n                </a>\n            </div>\n            <div class=\"col-sm-12 col-lg-4 mbr-text mbr-fonts-style mbr-light\" mbr-text mbr-theme-style=\"display-4\" data-app-selector=\".mbr-text\" mbr-if=\"showText\">© 2020 &nbsp;PlayCode . All rights reserved.<br>Built with Love by Us</div>\n            <div class=\"social-media col-sm-12 col-lg-4\" mbr-if=\"showIcons\">\n                <ul>\n                    <li mbr-if=\"iconsCount > 0\">\n                      <a class=\"icon-transition\" href=\"https://www.instagram.com/theplaycode/\" target=\"_blank\">\n                        <span mbr-icon class=\"mbr-iconfont socicon-instagram socicon\"></span>\n                      </a>\n                    </li>\n                    <li mbr-if=\"iconsCount > 1\">\n                      <a class=\"icon-transition\" href=\"https://www.facebook.com/theplaycodegame\" target=\"_blank\">\n                        <span mbr-icon class=\"mbr-iconfont socicon-facebook socicon\"></span>\n                      </a>\n                    </li>\n                    <li mbr-if=\"iconsCount > 2\">\n                      <a class=\"icon-transition\" href=\"https://www.youtube.com/channel/UCiEFJGgczYgPzRXczRIfldg?view_as=subscriber\" target=\"_blank\">\n                        <span mbr-icon class=\"mbr-iconfont socicon-youtube socicon\"></span>\n                      </a>\n                    </li>\n                    <li mbr-if=\"iconsCount > 3\">\n                      <a class=\"icon-transition\" href=\"#\">\n                        <span mbr-icon class=\"mbr-iconfont socicon-dlive socicon\"></span>\n                      </a>\n                    </li>\n                    <li mbr-if=\"iconsCount > 4\">\n                      <a class=\"icon-transition\" href=\"#\">\n                        <span mbr-icon class=\"mbr-iconfont socicon-rss socicon\" style></span>\n                      </a>\n                    </li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</section>",
           "_cid": "rOWGnhVnwW",
+          "_anchor": "extFooter22-1r",
           "_protectedParams": [],
           "_global": true,
           "_once": false,
-          "_params": {},
-          "_anchor": "extFooter22-1r"
+          "_params": {}
         }
       ]
     },
@@ -4569,11 +4965,11 @@
           "_isUserblock": true,
           "_sourceTheme": "creativem4",
           "_cid": "rOc2rK4zrA",
+          "_anchor": "menu01-1t",
           "_protectedParams": [],
           "_global": true,
           "_once": "menu",
-          "_params": {},
-          "_anchor": "menu01-1t"
+          "_params": {}
         },
         {
           "alias": "mobirise4-blocks/components",
@@ -4652,11 +5048,11 @@
           "_name": "extFooter22",
           "_customHTML": "<section class=\"extFooter\" group=\"Additional Blocks\" global mbr-class=\"{'mbr-reveal': reveal, 'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"0\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"5\">\n        <input type=\"checkbox\" title=\"Show Logo\" name=\"showLogo\" checked>\n        <input type=\"range\" title=\"Logo Size\" inline name=\"logoSize\" min=\"3.8\" max=\"8\" step=\"0.1\" value=\"3.8\" condition=\"showLogo\">\n        <input type=\"checkbox\" title=\"Show Text\" name=\"showText\" checked>\n        <input type=\"checkbox\" title=\"Show Icons\" name=\"showIcons\" checked>\n        <select title=\"Icons Count\" name=\"iconsCount\" condition=\"showIcons\">\n            <option value=\"1\">1</option>\n            <option value=\"2\">2</option>\n            <option value=\"3\" selected>3</option>\n            <option value=\"4\">4</option>\n            <option value=\"5\">5</option>\n        </select>\n        <input type=\"color\" title=\"Circle Color\" name=\"circleColor\" value=\"#00c48c\" condition=\"showIcons\">\n        <input type=\"color\" title=\"Circle on Hover\" name=\"circleColor2\" value=\"#5b686b\" condition=\"showIcons\">\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/img/03.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#3C3C3C\" condition=\"overlay&&bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.5\" condition=\"overlay&&bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay&&bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n    <div class=\"container\">\n        <div class=\"row align-center justify-content-center align-items-center\">\n            <div class=\"logo-section col-sm-12 col-lg-4\" mbr-if=\"showLogo\">\n                <a href=\"#\"><img src=\"@PROJECT_PATH@/assets/images/logo-playcode-qr-252x252.jpg\" height=\"128\" alt=\"Mobirise\" mbr-style=\"{'height': logoSize + 'rem'}\" title>\n                </a>\n            </div>\n            <div class=\"col-sm-12 col-lg-4 mbr-text mbr-fonts-style mbr-light\" mbr-text mbr-theme-style=\"display-4\" data-app-selector=\".mbr-text\" mbr-if=\"showText\">© 2020 &nbsp;PlayCode . All rights reserved.<br>Built with Love by Us</div>\n            <div class=\"social-media col-sm-12 col-lg-4\" mbr-if=\"showIcons\">\n                <ul>\n                    <li mbr-if=\"iconsCount > 0\">\n                      <a class=\"icon-transition\" href=\"https://www.instagram.com/theplaycode/\" target=\"_blank\">\n                        <span mbr-icon class=\"mbr-iconfont socicon-instagram socicon\"></span>\n                      </a>\n                    </li>\n                    <li mbr-if=\"iconsCount > 1\">\n                      <a class=\"icon-transition\" href=\"https://www.facebook.com/theplaycodegame\" target=\"_blank\">\n                        <span mbr-icon class=\"mbr-iconfont socicon-facebook socicon\"></span>\n                      </a>\n                    </li>\n                    <li mbr-if=\"iconsCount > 2\">\n                      <a class=\"icon-transition\" href=\"https://www.youtube.com/channel/UCiEFJGgczYgPzRXczRIfldg?view_as=subscriber\" target=\"_blank\">\n                        <span mbr-icon class=\"mbr-iconfont socicon-youtube socicon\"></span>\n                      </a>\n                    </li>\n                    <li mbr-if=\"iconsCount > 3\">\n                      <a class=\"icon-transition\" href=\"#\">\n                        <span mbr-icon class=\"mbr-iconfont socicon-dlive socicon\"></span>\n                      </a>\n                    </li>\n                    <li mbr-if=\"iconsCount > 4\">\n                      <a class=\"icon-transition\" href=\"#\">\n                        <span mbr-icon class=\"mbr-iconfont socicon-rss socicon\" style></span>\n                      </a>\n                    </li>\n                </ul>\n            </div>\n        </div>\n    </div>\n</section>",
           "_cid": "rOWGnhVnwW",
+          "_anchor": "extFooter22-1u",
           "_protectedParams": [],
           "_global": true,
           "_once": false,
-          "_params": {},
-          "_anchor": "extFooter22-1u"
+          "_params": {}
         }
       ]
     }
