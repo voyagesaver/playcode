@@ -56,7 +56,7 @@
     "uniqCompNum": 112,
     "versionPublish": "4.12.3",
     "screenshot": "screenshot.png",
-    "favicon": "@PROJECT_PATH@/assets/images/favicon-playcode-128x143.png",
+    "favicon": "@PROJECT_PATH@/assets/images/sweetch-copy-128x128.png",
     "noImageResize": null,
     "cssOptimize": false,
     "lazyLoad": false,
