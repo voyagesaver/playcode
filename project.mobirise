@@ -54,7 +54,7 @@
       }
     ],
     "uniqCompNum": 124,
-    "versionPublish": "5.2.0",
+    "versionPublish": "5.2.1",
     "screenshot": "screenshot.png",
     "favicon": "@PROJECT_PATH@/assets/images/sweetch-copy-128x128.png",
     "noImageResize": null,
