@@ -77,7 +77,8 @@
     "google-analytics": "",
     "robotsText": "User-agent: *\r\nDisallow: /cgi-bin\r\n",
     "imageResize": true,
-    "publishChangesOnly": true
+    "publishChangesOnly": true,
+    "chatbutton": false
   },
   "pages": {
     "index.html": {
